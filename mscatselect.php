@@ -30,14 +30,15 @@ if( !defined( 'MEDIAWIKI' ) ) {
 ## Register extension setup hook and credits:
 $wgExtensionCredits['parserhook'][] = array(
         'name'           => 'MsCatSelect',
-        'url'  => 'http://www.mediawiki.org/wiki/Extension:MsCatSelect',
-        'version'        => '5.3',
-        'author' => '[mailto:mscatselect@ratin.de mscatselect@ratin.de] | [http://www.ratin.de/mscatselect.html Ratin]',
+        'url'            => 'https://www.mediawiki.org/wiki/Extension:MsCatSelect',
+        'version'        => '5.3.1',
+        'author'         => '[mailto:mscatselect@ratin.de mscatselect@ratin.de] | [http://www.ratin.de/mscatselect.html Ratin]',
         'descriptionmsg' => 'mscs-desc',
 );
 
 $dir = dirname(__FILE__) . '/';
-$wgExtensionMessagesFiles['mscatselect'] = $dir . 'mscatselect.i18n.php';
+$wgExtensionMessagesFiles['MsCatSelect'] = $dir . 'mscatselect.i18n.php';
+$wgMessagesDirs['MsCatSelect'] = $dir . 'i18n';
 
 # Hook when starting editing:
 $wgHooks['EditPage::showEditForm:initial'][] = array( 'fnSelectCategoryShowHook', false );

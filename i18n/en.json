@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"GabMaster",
+			"Kghbln"
+		]
+	},
+	"mscs-desc": "Allows to add a page to an existing or newly creatable category via a drop-down list",
+	"mscs-title": "Main category",
+	"mscs-untercat": "New subcategory",
+	"mscs-untercat-hinw": "will be created in the category selected above",
+	"mscs-warnnocat": "WARNING: This page does not belong to any category. Please select a category.',
+	"mscs-cats": "Assigned categories",
+	"mscs-add": "Add",
+	"mscs-go": "Create",
+	"mscs-created": "New category successfully created",
+	"mscs-sortkey": "Please add the default sortkey here. It is used for sorting within the category overview pages."
+}

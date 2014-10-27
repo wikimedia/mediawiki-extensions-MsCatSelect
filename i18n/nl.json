@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"hrh"
+		]
+	},
+	"mscs-title": "Categorie",
+	"mscs-untercat": "Nieuwe subcategorie",
+	"mscs-untercat-hinw": "Nieuwe categorie wordt aangemaakt in bovenstaande categorie, tenzij --- is geselecteerd",
+	"selectcategory-warnnocat": "Deze pagina heeft nog geen categorie. Definieer een nieuwe of bestaande categorie.",
+	"mscs-cats": "Toegewezen categorieën",
+	"mscs-add": "Toevoegen",
+	"mscs-go": "Aanmaken"
+}

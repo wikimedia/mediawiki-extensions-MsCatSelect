@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Martin Schwindl  <martin.schwindl@ratin.de>",
+			"Kghbln"
+		]
+	},
+	"mscs-desc": "Ermöglicht das Zuweisen einer Seite zu einer bestehenden oder neu erstellbaren Kategorie über ein Dropdown-Listenfeld",
+	"mscs-title": "Oberkategorie auswählen:",
+	"mscs-untercat": "Neue Unterkategorie:",
+	"mscs-untercat-hinw": "wird in vorrausgewählter Oberkategorie erstellt",
+	"mscs-warnnocat": "VORSICHT: Diese Seite enthält noch keine Kategorie. Bitte fügen Sie zuerst eine Kategorie hinzu!",
+	"mscs-cats": "Bereits vergebene Kategorien:",
+	"mscs-add": "hinzufügen",
+	"mscs-go": "erstellen",
+	"mscs-created": "Neue Kategorie erfolgreich erstellt",
+	"mscs-sortkey": "Hier bitte den Sortierschlüssel eingeben. Der Sortierschlüssel ist für die Sortierung in der Kategorieübersicht relevant."
+}

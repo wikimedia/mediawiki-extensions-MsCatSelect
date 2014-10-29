@@ -1,83 +1,79 @@
 <?php
 
-/**
- * Functions file for extension MsCatSelect.
- *  
- * @author Martin Schwindl  <martin.schwindl@ratin.de> 
- * @copyright © 2014 by Martin Schwindl
- *
- * @licence GNU General Public Licence 2.0 or later
- */
+class MsCatSelect {
 
-if( !defined( 'MEDIAWIKI' ) ) {
-  echo( "This file is an extension to the MediaWiki software and cannot be used standalone.\n" );
-  die();
-}
- 
- 
-## Entry point for the hook and main worker function for editing the page:
-function fnSelectCategoryShowHook( $m_isUpload = false, $m_pageObj ) {
-	  
-  fnCleanTextbox($m_pageObj); #clean the textbox
-  return true;
-}
+	static function start() {
+		global $wgOut, $wgJsMimeType, $wgMSCS_MainCategories, $wgMSCS_UseNiceDropdown, $wgMSCS_WarnNoCategories;
 
-## Entry point for the hook and main worker function for saving the page:
-function fnSelectCategorySaveHook( $m_isUpload, $m_pageObj ) {
-  global $wgContLang;
-  global $wgTitle;
+		// Load module
+		$wgOut->addModules( 'ext.MsCatSelect' );
 
-    # Get localised namespace string:
-    $m_catString = $wgContLang->getNsText( NS_CATEGORY );
+		// Make the configuration available to JavaScript
+		$mscsVars = array(
+			'MainCategories' => $wgMSCS_MainCategories,
+			'UseNiceDropdown' => $wgMSCS_UseNiceDropdown,
+			'WarnNoCategories' => $wgMSCS_WarnNoCategories,
+		);
+		$mscsVars = json_encode( $mscsVars, true );
+		$wgOut->addScript( "<script type=\"{$wgJsMimeType}\">var mscsVars = $mscsVars;</script>\n" );
 
-    # default sort key is page name with stripped namespace name,
-    # otherwise sorting is ugly.
-    if ($wgTitle->getNamespace() == NS_MAIN) {
-      $default_sortkey = "";
-    } else {
-      #$default_sortkey = "|{{PAGENAME}}"; macht bei dateien probleme (anderer NS)
-    }
-    $m_text = "\n";
+		return true;
+	}
 
-    # Iterate through all selected category entries:
-    if (array_key_exists('SelectCategoryList', $_POST)) {
-      foreach( $_POST['SelectCategoryList'] as $m_cat ) {
-        $m_text .= "\n[[".$m_catString.":".$m_cat."]]";
-      }
-    }
-    # If it is an upload we have to call a different method:
-    if ( $m_isUpload ) {
-      $m_pageObj->mUploadDescription .= $m_text;
-    } else{
-      $m_pageObj->textbox1 .= $m_text;
-    }
+	// Entry point for the hook and main worker function for editing the page:
+	static function showHook( EditPage $editPage, OutputPage $output ) {
+		self::cleanTextbox( $editPage );
+		return true;
+	}
 
-  # Return to the let MediaWiki do the rest of the work:
-  return true;
-}
+	// Entry point for the hook and main worker function for saving the page:
+	static function saveHook( $editPage ) {
+		global $wgContLang, $wgTitle;
 
+		// Get localised namespace string
+		$categoryNamespace = $wgContLang->getNsText( NS_CATEGORY );
 
-##removes the old category tag from the text the user views in the editbox.
-function fnCleanTextbox( $m_pageObj ) {
+		// Default sort key is page name with stripped namespace name, otherwise sorting is ugly
+		if ( $wgTitle->getNamespace() == NS_MAIN ) {
+			$default_sortkey = "";
+		} else {
+			$default_sortkey = "|{{PAGENAME}}";
+		}
 
-  global $wgContLang;
-  # Get page contents:
-  $m_pageText = $m_pageObj->textbox1;
-  # Get localised namespace string:
-  $m_catString = strtolower( $wgContLang->getNsText( NS_CATEGORY ) );
-  # The regular expression to find the category links:
-  $m_pattern = "\[\[({$m_catString}|category|Category):([^\|\]]*)(\|[^\|\]]*)?\]\]";
-  $m_replace = "$2";
-  # The container to store the processed text:
-  $m_cleanText = '';
+		// Iterate through all selected category entries:
+		$text = "\n";
+		if ( array_key_exists( 'SelectCategoryList', $_POST ) ) {
+			foreach ( $_POST['SelectCategoryList'] as $category ) {
+				$text .= "\n[[" . $categoryNamespace . ":" . $category . "]]";
+			}
+		}
+		$editPage->textbox1 .= $text;
 
-  # Check linewise for category links:
-  foreach( explode( "\n", $m_pageText ) as $m_textLine ) {
-    # Filter line through pattern and store the result:
-    $m_cleanText .= preg_replace( "/{$m_pattern}/i", "", $m_textLine ) . "\n";
-  }
-  # Place the cleaned text into the text box:
-  $m_pageObj->textbox1 = trim( $m_cleanText );
+		return true;
+	}
 
-  return true;
+	// Removes the old category tag from the text the user views in the editbox.
+	static function cleanTextbox( $editPage ) {
+		global $wgContLang;
+
+		$editText = $editPage->textbox1;
+
+		$categoryNamespace = $wgContLang->getNsText( NS_CATEGORY );
+
+		// The regular expression to find the category links:
+		$pattern = "\[\[({$categoryNamespace}):([^\|\]]*)(\|[^\|\]]*)?\]\]";
+
+		// The container to store the processed text:
+		$cleanText = '';
+
+		// Check linewise for category links:
+		foreach ( explode( "\n", $editText ) as $textLine ) {
+			// Filter line through pattern and store the result:
+			$cleanText .= preg_replace( "/{$pattern}/i", "", $textLine ) . "\n";
+		}
+		// Place the cleaned text into the text box:
+		$editPage->textbox1 = trim( $cleanText );
+
+		return true;
+	}
 }

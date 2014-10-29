@@ -1,14 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Neřeknu   <narodni.hrdost@Safe-mail.net>"
+			"Neřeknu   <narodni.hrdost@Safe-mail.net>\r"
 		]
 	},
+	"mscs-desc": "Mit dieser Extension kann eine Seite einer bestehenden oder neuen Kategorie per DropDown zugewiesen werden oder auch neue Unterkategorien erstellt werden.",
 	"mscs-title": "Hlavní kategorie",
 	"mscs-untercat": "Nová podkategorie",
 	"mscs-untercat-hinw": "bude vytvořena ve výše uvedené kategorii",
-	"mscs-warnnocat": "UPOZORNĚNÍ: Tato stránka není zařazena do žádné kategorie. Prosím zvolte nějakou kategorii!",
+	"mscs-warnnocat": "Stránka má zatím přiřazeny žádné kategorie. Jste si jisti, že chcete uložit změny?",
 	"mscs-cats": "Již přiřazené kategorie",
 	"mscs-add": "přidat",
-	"mscs-go": "vytvořit"
+	"mscs-go": "vytvořit",
+	"mscs-created": "Neue Kategorie erfolgreich erstellt",
+	"mscs-sortkey": "Hier bitte den Sortierschlüssel eingeben. Der Sortierschlüssel ist für die Sortierung in der Kategorieübersicht relevant."
 }

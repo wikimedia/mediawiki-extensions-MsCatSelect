@@ -11,11 +11,11 @@
  * This shim maintains compatibility back to MediaWiki 1.17.
  */
 $messages = array();
-if ( !function_exists( 'wfJsonI18nShim71de45b0e695cd9c' ) ) {
-	function wfJsonI18nShim71de45b0e695cd9c( $cache, $code, &$cachedData ) {
+if ( !function_exists( 'wfJsonI18nShim9fab6f3c40c10f09' ) ) {
+	function wfJsonI18nShim9fab6f3c40c10f09( $cache, $code, &$cachedData ) {
 		$codeSequence = array_merge( array( $code ), $cachedData['fallbackSequence'] );
 		foreach ( $codeSequence as $csCode ) {
-			$fileName = dirname( __FILE__ ) . "/./i18n/$csCode.json";
+			$fileName = dirname( __FILE__ ) . "/extensions/MsCatSelect/i18n/$csCode.json";
 			if ( is_readable( $fileName ) ) {
 				$data = FormatJson::decode( file_get_contents( $fileName ), true );
 				foreach ( array_keys( $data ) as $key ) {
@@ -31,5 +31,5 @@ if ( !function_exists( 'wfJsonI18nShim71de45b0e695cd9c' ) ) {
 		return true;
 	}
 
-	$GLOBALS['wgHooks']['LocalisationCacheRecache'][] = 'wfJsonI18nShim71de45b0e695cd9c';
+	$GLOBALS['wgHooks']['LocalisationCacheRecache'][] = 'wfJsonI18nShim9fab6f3c40c10f09';
 }

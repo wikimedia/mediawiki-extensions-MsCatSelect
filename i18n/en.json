@@ -1,15 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"GabMaster",
-			"Kghbln"
+			"GabMaster\r",
+			"Kghbln\r"
 		]
 	},
-	"mscs-desc": "Allows to add a page to an existing or newly creatable category via a drop-down list",
-	"mscs-title": "Main category",
+	"mscs-desc": "Allows  to add a page to an existing or newly creatable category via a drop-down list",
+	"mscs-title": "Main Category",
 	"mscs-untercat": "New subcategory",
 	"mscs-untercat-hinw": "will be created in the category selected above",
-	"mscs-warnnocat": "WARNING: This page does not belong to any category. Please select a category.',
+	"mscs-warnnocat": "The page has no categories assigned yet. Are you sure you want to save the changes?",
 	"mscs-cats": "Assigned categories",
 	"mscs-add": "Add",
 	"mscs-go": "Create",

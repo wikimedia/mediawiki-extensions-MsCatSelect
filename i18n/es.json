@@ -1,14 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ángel J. Vico"
+			"Ángel J. Vico \r"
 		]
 	},
 	"mscs-desc": "Esta extensión permite asignar categorías y subcategorías a una página escogiéndolas de una lista desplegable. También permite crear nuevas categorías desde la página de edición.",
 	"mscs-title": "Categoría principal",
 	"mscs-untercat": "Nueva subcategoría",
 	"mscs-untercat-hinw": "se creará en la categoría seleccionada arriba",
-	"mscs-warnnocat": "ADVERTENCIA: Esta página no pertenece a ninguna categoría. Por favor, seleccione una categoría.",
+	"mscs-warnnocat": "La página no tiene categorías asignadas todavía. ¿Seguro que quieres salvar los cambios?",
 	"mscs-cats": "Categorías asignadas",
 	"mscs-add": "Agregar",
 	"mscs-go": "Crear",

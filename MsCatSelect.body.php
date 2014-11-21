@@ -3,20 +3,20 @@
 class MsCatSelect {
 
 	static function start() {
-		global $wgOut, $wgJsMimeType, $wgMSCS_MainCategories, $wgMSCS_UseNiceDropdown, $wgMSCS_WarnNoCategories;
+		global $wgOut, $wgMSCS_MainCategories, $wgMSCS_UseNiceDropdown, $wgMSCS_WarnNoCategories, $wgMSCS_WarnNoCategoriesException;
 
 		// Load module
 		$wgOut->addModules( 'ext.MsCatSelect' );
 
-		// Make the configuration available to JavaScript
+		// Make the configuration variables available to JavaScript
 		$mscsVars = array(
 			'MainCategories' => $wgMSCS_MainCategories,
 			'UseNiceDropdown' => $wgMSCS_UseNiceDropdown,
 			'WarnNoCategories' => $wgMSCS_WarnNoCategories,
+			'WarnNoCategoriesException' => $wgMSCS_WarnNoCategoriesException,
 		);
 		$mscsVars = json_encode( $mscsVars, true );
-		$wgOut->addScript( "<script type=\"{$wgJsMimeType}\">var mscsVars = $mscsVars;</script>\n" );
-
+		$wgOut->addScript( "<script>var mscsVars = $mscsVars;</script>" );
 		return true;
 	}
 

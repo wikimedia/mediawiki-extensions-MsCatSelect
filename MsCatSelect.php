@@ -3,10 +3,10 @@
 $wgExtensionCredits['parserhook'][] = array(
 	'name' => 'MsCatSelect',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:MsCatSelect',
-	'version' => 6,
-	'license-name' => 'GPLv2+',
-	'author' => array( '[mailto:mscatselect@ratin.de Martin Schwindl]', '[https://www.mediawiki.org/wiki/User:Luis_Felipe_Schenone Luis Felipe Schenone]' ),
+	'version' => '6.0',
 	'descriptionmsg' => 'mscs-desc',
+	'license-name' => 'GPLv2+',
+	'author' => array( '[mailto:wiki@ratin.de Martin Schwindl]', '[mailto:wiki@keyler-consult.de Martin Keyler]', '[https://www.mediawiki.org/wiki/User:Luis_Felipe_Schenone Luis Felipe Schenone]' ),
 );
 
 $wgResourceModules['ext.MsCatSelect'] = array(
@@ -37,7 +37,8 @@ $wgHooks['EditPage::showEditForm:initial'][] = 'MsCatSelect::start';
 $wgHooks['EditPage::showEditForm:initial'][] = 'MsCatSelect::showHook';
 $wgHooks['EditPage::attemptSave'][] = 'MsCatSelect::saveHook';
 
-//Configuration defaults
+// Default configuration
 $wgMSCS_MainCategories = null;
 $wgMSCS_UseNiceDropdown = true;
 $wgMSCS_WarnNoCategories = true;
+$wgMSCS_WarnNoCategoriesException = array();

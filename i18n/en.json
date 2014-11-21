@@ -5,7 +5,7 @@
 			"Kghbln\r"
 		]
 	},
-	"mscs-desc": "Allows  to add a page to an existing or newly creatable category via a drop-down list",
+	"mscs-desc": "Allows to add a page to an existing or newly creatable category via a drop-down list",
 	"mscs-title": "Main Category",
 	"mscs-untercat": "New subcategory",
 	"mscs-untercat-hinw": "will be created in the category selected above",

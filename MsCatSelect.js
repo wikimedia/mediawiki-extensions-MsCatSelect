@@ -246,7 +246,11 @@ function mscsCreateArea() {
 }
 
 function mscsCheckCategories() {
-	if ( mscsVars.WarnNoCategories === true && jQuery( '#mscs-added input[type="checkbox"]:checked' ).length === 0 && jQuery.inArray( mw.config.get( 'wgNamespaceNumber' ), mscsVars.WarnNoCategoriesException ) === -1 ) {
+	if ( mscsVars.WarnNoCategories === true &&
+		 jQuery( '#mscs-added input[type="checkbox"]:checked' ).length === 0 &&
+		 jQuery.inArray( mw.config.get( 'wgNamespaceNumber' ), mscsVars.WarnNoCategoriesException ) === -1 &&
+		 jQuery.inArray( mw.config.get( 'wgRelevantPageName' ), mscsVars.WarnNoCategoriesException ) === -1
+	) {
 		return confirm( mediaWiki.msg( 'mscs-warnnocat' ) );
 	}
 	return true;

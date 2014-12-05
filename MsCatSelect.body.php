@@ -13,7 +13,7 @@ class MsCatSelect {
 			'MainCategories' => $wgMSCS_MainCategories,
 			'UseNiceDropdown' => $wgMSCS_UseNiceDropdown,
 			'WarnNoCategories' => $wgMSCS_WarnNoCategories,
-			'WarnNoCategoriesException' => $wgMSCS_WarnNoCategoriesException,
+			'WarnNoCategoriesException' => str_replace( ' ', '_', $wgMSCS_WarnNoCategoriesException ),
 		);
 		$mscsVars = json_encode( $mscsVars, true );
 		$wgOut->addScript( "<script>var mscsVars = $mscsVars;</script>" );

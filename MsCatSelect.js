@@ -95,7 +95,7 @@ function mscsCreateDropDown( maincat, ebene ) {
 }
 
 function mscsAddCat( newCat, newSortkey ) {
-	if ( newCat !== '' && jQuery( '#mscs-added .mscs_entry[category="' + newCat + '"]' ).length === 0 ) {
+	if ( newCat !== '---' && jQuery( '#mscs-added .mscs_entry[category="' + newCat + '"]' ).length === 0 ) {
 
 		if ( newSortkey === '' ) {
 			newSortkey = wgTitle; // Standard sortkey is the page title

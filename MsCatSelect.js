@@ -67,14 +67,13 @@ function mscsGetSubcats( maincat, ebene, container ) {
 
 function mscsCreateDropDown( maincat, ebene ) {
 	var dd = jQuery( '<select/>' ).attr( 'id', 'mscs_dd_' + ebene ).change( function () {
-
 		var container = jQuery( '#mscs_subcat_' + ebene ).empty();
 
-		if ( jQuery( this ).val() !== 0 ) { //not ---
+		if ( jQuery( this ).val() !== '0' ) { //not ---
 			selectedCat = jQuery( 'option:selected', this ).text();
-			mscsGetSubcats( selectedCat, ebene,container );
+			mscsGetSubcats( selectedCat, ebene, container );
 		} else if ( ebene === 0 ) { //--- and nothing
-			selectedCat = ''; //zuruecksetzen
+			selectedCat = ''; //Fall back to the previous category, if any
 		} else {
 			selectedCat = jQuery( '#MsCatSelect option:selected:eq(' + ( ebene - 1 ) + ')' ).text();
 		}

@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Martin Schwindl  <martin.schwindl@ratin.de>\r",
-			"Kghbln\r"
+			"Martin Schwindl <martin.schwindl@ratin.de>",
+			"Kghbln"
 		]
 	},
 	"mscs-desc": "Ermöglicht das Zuweisen einer Seite zu einer bestehenden oder neu erstellbaren Kategorie über ein Dropdown-Listenfeld",

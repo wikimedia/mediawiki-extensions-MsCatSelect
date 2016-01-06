@@ -28,13 +28,13 @@ class MsCatSelect {
 
 	// Entry point for the hook and main worker function for saving the page:
 	static function saveHook( $editPage ) {
-		global $wgContLang, $wgTitle;
+		global $wgContLang;
 
 		// Get localised namespace string
 		$categoryNamespace = $wgContLang->getNsText( NS_CATEGORY );
 
 		// Default sort key is page name with stripped namespace name, otherwise sorting is ugly
-		if ( $wgTitle->getNamespace() == NS_MAIN ) {
+		if ( $editPage->getContextTitle()->getNamespace() == NS_MAIN ) {
 			$default_sortkey = "";
 		} else {
 			$default_sortkey = "|{{PAGENAME}}";

@@ -2,7 +2,7 @@
 
 $wgExtensionCredits['parserhook'][] = array(
 	'name' => 'MsCatSelect',
-	'url' => 'http://www.mediawiki.org/wiki/Extension:MsCatSelect',
+	'url' => 'https://www.mediawiki.org/wiki/Extension:MsCatSelect',
 	'version' => '6.1',
 	'descriptionmsg' => 'mscs-desc',
 	'license-name' => 'GPLv2+',

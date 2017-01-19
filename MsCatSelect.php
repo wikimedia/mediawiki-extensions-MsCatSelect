@@ -5,7 +5,7 @@ $wgExtensionCredits['parserhook'][] = array(
 	'url' => 'https://www.mediawiki.org/wiki/Extension:MsCatSelect',
 	'version' => '6.1',
 	'descriptionmsg' => 'mscs-desc',
-	'license-name' => 'GPLv2+',
+	'license-name' => 'GPL-2.0+',
 	'author' => array( '[mailto:wiki@ratin.de Martin Schwindl]', '[mailto:wiki@keyler-consult.de Martin Keyler]', '[https://www.mediawiki.org/wiki/User:Luis_Felipe_Schenone Luis Felipe Schenone]' ),
 );
 

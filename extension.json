@@ -1,0 +1,65 @@
+{
+	"name": "MsCatSelect",
+	"version": "6.2",
+	"author": [
+		"[mailto:wiki@ratin.de Martin Schwindl]",
+		"[mailto:wiki@keyler-consult.de Martin Keyler]",
+		"[https://www.mediawiki.org/wiki/User:Sophivorus Felipe Schenone]"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:MsCatSelect",
+	"descriptionmsg": "mscs-desc",
+	"license-name": "GPL-2.0+",
+	"type": "parserhook",
+	"MessagesDirs": {
+		"MsCatSelect": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"MsCatSelect": "MsCatSelect.body.php"
+	},
+	"ResourceModules": {
+		"ext.MsCatSelect": {
+			"scripts": "MsCatSelect.js",
+			"styles": "MsCatSelect.css",
+			"messages": [
+				"mscs-title",
+				"mscs-untercat",
+				"mscs-untercat-hinw",
+				"mscs-warnnocat",
+				"mscs-cats",
+				"mscs-add",
+				"mscs-go",
+				"mscs-created",
+				"mscs-sortkey"
+			],
+			"dependencies": "jquery.chosen"
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "MsCatSelect"
+	},
+	"Hooks": {
+		"EditPage::showEditForm:initial": [
+			"MsCatSelect::start",
+			"MsCatSelect::showHook"
+		],
+		"EditPage::attemptSave": "MsCatSelect::saveHook"
+	},
+	"config": {
+		"MSCS_MainCategories": {
+			"value": null
+		},
+		"MSCS_UseNiceDropdown": {
+			"value": true
+		},
+		"MSCS_WarnNoCategories": {
+			"value": true
+		},
+		"MSCS_WarnNoCategoriesException": {
+			"value": []
+		}
+	},
+	"manifest_version": 2
+}

@@ -15,7 +15,7 @@ function mscsGetUncategorizedCats( dd ) {
 		if ( data && data.query && data.query.querypage ) {
 			// Success!
 			jQuery.each( data.query.querypage.results, function( index, val ) {
-				jQuery( '<option/>', { value: index + 1, text: val.value.replace( /_/g, ' ' ) } ).appendTo( dd );
+				jQuery( '<option>', { value: index + 1, text: val.value.replace( /_/g, ' ' ) } ).appendTo( dd );
 			});
 			if ( chosenDropDown ) {
 				dd.chosen( { disableSearchThreshold: 6 } );
@@ -42,20 +42,20 @@ function mscsGetSubcats( maincat, ebene, container ) {
 		if ( data && data.query && data.query.categorymembers ) {
 			// Success!
 			if ( data.query.categorymembers.length > 0 ) {
-				jQuery( '<div/>' ).attr( 'class', 'node' ).prependTo( container );
+				jQuery( '<div>' ).attr( 'class', 'node' ).prependTo( container );
 				var dd = mscsCreateDropDown( selectedCat, ebene + 1 ).appendTo( container );
-				jQuery( '<div/>' ).attr( 'id', 'mscs_subcat_' + ( ebene + 1 ) ).attr( 'class', 'subcat' ).appendTo( container );
+				jQuery( '<div>' ).attr( 'id', 'mscs_subcat_' + ( ebene + 1 ) ).attr( 'class', 'subcat' ).appendTo( container );
 
 				jQuery.each( data.query.categorymembers, function( index, val ) {
 					var listElement = val.title.split( ':', 2 );
-					jQuery( '<option/>', { value: index + 1, text: listElement[1] } ).appendTo( dd );
+					jQuery( '<option>', { value: index + 1, text: listElement[1] } ).appendTo( dd );
 				});
 				if ( chosenDropDown ) {
 					dd.chosen({ disableSearchThreshold: 6 });
 					jQuery( '#mscs_dd_' + ( ebene + 1 ) + '_chzn' ).width( dd.width() + 20 );
 				}
 			} else { //no subcats
-				jQuery( '<div/>' ).attr( 'class', 'no-node' ).prependTo( jQuery( '#mscs_subcat_' + ebene ) );
+				jQuery( '<div>' ).attr( 'class', 'no-node' ).prependTo( jQuery( '#mscs_subcat_' + ebene ) );
 			}
 		} else if ( data && data.error ) {
 			mediaWiki.log( 'Error: API returned error code "' + data.error.code + '": ' + data.error.info );
@@ -66,7 +66,7 @@ function mscsGetSubcats( maincat, ebene, container ) {
 }
 
 function mscsCreateDropDown( maincat, ebene ) {
-	var dd = jQuery( '<select/>' ).attr( 'id', 'mscs_dd_' + ebene ).change( function () {
+	var dd = jQuery( '<select>' ).attr( 'id', 'mscs_dd_' + ebene ).change( function () {
 		var container = jQuery( '#mscs_subcat_' + ebene ).empty();
 
 		if ( jQuery( this ).val() !== '0' ) { //not ---
@@ -79,49 +79,44 @@ function mscsCreateDropDown( maincat, ebene ) {
 		}
 	});
 
-	jQuery( '<option/>', { value: '0', text: '---' } ).appendTo( dd );
+	jQuery( '<option>', { value: '0', text: '---' } ).appendTo( dd );
 
 	if ( ebene === 0 && maincat === '' ) { //first dd
 		if ( mscsVars.MainCategories === null ) {
 			mscsGetUncategorizedCats( dd );
 		} else {
 			jQuery.each( mscsVars.MainCategories, function( ddIndex, ddValue ) {
-				jQuery( '<option/>', { value: ddIndex + 1, text: ddValue } ).appendTo( dd );
+				jQuery( '<option>', { value: ddIndex + 1, text: ddValue } ).appendTo( dd );
 			});
 		}
 	}	
 	return dd;
 }
 
-function mscsAddCat( newCat, newSortkey ) {
-	if ( newCat !== '---' && jQuery( '#mscs-added .mscs_entry[category="' + newCat + '"]' ).length === 0 ) {
+function mscsAddCat( category, sortkey ) {
+	if ( category !== '---' && jQuery( '#mscs-added .mscs_entry[category="' + category + '"]' ).length === 0 ) {
 
-		if ( newSortkey === '' ) {
-			newSortkey = wgTitle; // Standard sortkey is the page title
-		}
-
-        var entry = jQuery( '<div/>' ).attr({
+		var entry = jQuery( '<div>' ).attr({
 			'class': 'mscs_entry',
-			'category': newCat,
-			'sortkey': newSortkey
-        }).text( newCat ).appendTo( jQuery( '#mscs-added' ) );
+			'category': category,
+			'sortkey': sortkey
+		}).text( category ).appendTo( jQuery( '#mscs-added' ) );
 
-        jQuery( '<input/>' ).attr({
+		var input = jQuery( '<input>' ).attr({
 			'class': 'mscs_checkbox',
 			'type': 'checkbox',
 			'name': 'SelectCategoryList[]',
-			'value': newCat + '|' + newSortkey,
+			'value': category + '|' + sortkey,
 			'checked': true
-        }).prependTo( entry );
+		}).prependTo( entry );
 
-		jQuery( '<span/>' ).attr( 'class', 'img-sortkey' ).attr( 'title', newSortkey ).click( function() {
-			var userInput = prompt( unescape( mediaWiki.msg( 'mscs-sortkey' ) ), jQuery( this ).attr( 'title' ) );
-			if ( userInput !== '' && userInput !== null && userInput !== newSortkey ) {
-				var sortkey = userInput;
-				mediaWiki.log( sortkey );
-				entry.attr( 'sortkey', sortkey );
-				entry.children( '.mscs_checkbox' ).attr( 'value', newCat + '|' + sortkey ); 
-				jQuery( this ).attr( 'title', sortkey );
+		jQuery( '<span>' ).attr( 'class', 'img-sortkey' ).attr( 'title', sortkey ).click( function () {
+			var oldSortkey = entry.attr( 'sortkey' );
+			var newSortkey = prompt( unescape( mediaWiki.msg( 'mscs-sortkey' ) ), oldSortkey );
+			if ( newSortkey !== null ) {
+				entry.attr( 'sortkey', newSortkey );
+				input.attr( 'value', category + '|' + newSortkey ); 
+				jQuery( this ).attr( 'title', newSortkey );
 			}
 		}).appendTo( entry );
 	}
@@ -186,7 +181,7 @@ function mscsCreateNewCat( newCat, oldCat ) {
 			//mediaWiki.log( latestDropDown );
 			var ddNext = jQuery( '#mscs_dd_' + ( latestDropDown + 1 ) );
 
-			jQuery( '<option/>', { value: 99, text: createdCat[1] } ).appendTo( ddNext );
+			jQuery( '<option>', { value: 99, text: createdCat[1] } ).appendTo( ddNext );
 			jQuery( '#mscs_subcat_' + latestDropDown + ' .node' ).removeClass( 'no-node' );
 			if ( chosenDropDown ) {
 				ddNext.chosen(); //wenn dropdown noch nicht existiert
@@ -207,13 +202,13 @@ function mscsCreateNewCat( newCat, oldCat ) {
 
 function mscsCreateArea() {
 
-	var mscsDiv = jQuery( '<div/>' ).attr( 'id', 'MsCatSelect' ).insertBefore( '.editButtons' ); 
+	var mscsDiv = jQuery( '<div>' ).attr( 'id', 'MsCatSelect' ).insertBefore( '.editButtons' ); 
 
-	var row1 = jQuery( '<div/>' ).attr( 'class', 'row row1' ).appendTo( mscsDiv );
-	var row2 = jQuery( '<div/>' ).attr( 'class', 'row row2' ).appendTo( mscsDiv );
-	var row3 = jQuery( '<div/>' ).attr( 'class', 'row row3' ).appendTo( mscsDiv );
+	var row1 = jQuery( '<div>' ).attr( 'class', 'row row1' ).appendTo( mscsDiv );
+	var row2 = jQuery( '<div>' ).attr( 'class', 'row row2' ).appendTo( mscsDiv );
+	var row3 = jQuery( '<div>' ).attr( 'class', 'row row3' ).appendTo( mscsDiv );
 
-	jQuery( '<span/>' ).attr( 'class','label maincat' ).text( mediaWiki.msg( 'mscs-title' ) ).appendTo( row1 );
+	jQuery( '<span>' ).attr( 'class','label maincat' ).text( mediaWiki.msg( 'mscs-title' ) ).appendTo( row1 );
 
 	mscsCreateDropDown( '', 0 ).appendTo( row1 );
 
@@ -223,23 +218,23 @@ function mscsCreateArea() {
         //jQuery( '.chzn-drop' ).css( 'width', '+=10' );
 	}
 
-	jQuery( '<div/>' ).attr( 'id', 'mscs_subcat_0' ).attr( 'class', 'subcat' ).appendTo( row1 );
+	jQuery( '<div>' ).attr( 'id', 'mscs_subcat_0' ).attr( 'class', 'subcat' ).appendTo( row1 );
 
-	jQuery( '<div/>' ).attr( 'id', 'mscs_add' ).attr( 'class', 'addcat' ).click( function() {
+	jQuery( '<div>' ).attr( 'id', 'mscs_add' ).attr( 'class', 'addcat' ).click( function() {
 		mscsAddCat( selectedCat, '' );
 	}).text( mediaWiki.msg( 'mscs-add' ) ).appendTo( row1 );
 
-	jQuery( '<span/>' ).attr( 'class', 'label' ).text( mediaWiki.msg( 'mscs-untercat' ) ).appendTo( row2 );
-	var newCatInput = jQuery( '<input/>' ).attr( 'class', 'input' ).attr( 'type', 'text' ).attr( 'id', 'newCatInput' ).attr( 'size', '30' ).appendTo( row2 );
-	jQuery( '<div/>' ).attr( 'id', 'mscs_add_untercat' ).attr( 'class', 'addcat' ).click( function() {
+	jQuery( '<span>' ).attr( 'class', 'label' ).text( mediaWiki.msg( 'mscs-untercat' ) ).appendTo( row2 );
+	var newCatInput = jQuery( '<input>' ).attr( 'class', 'input' ).attr( 'type', 'text' ).attr( 'id', 'newCatInput' ).attr( 'size', '30' ).appendTo( row2 );
+	jQuery( '<div>' ).attr( 'id', 'mscs_add_untercat' ).attr( 'class', 'addcat' ).click( function() {
 
 		mscsCreateNewCat( newCatInput.val(), selectedCat );
 
 	}).text( mediaWiki.msg( 'mscs-go' ) ).appendTo( row2 );
 
-	jQuery( '<span/>' ).attr( 'class', 'untercat-hinw' ).text( '(' + mediaWiki.msg( 'mscs-untercat-hinw' ) + ')' ).appendTo( row2 );
-	jQuery( '<span/>' ).attr( 'class', 'label' ).text( mediaWiki.msg( 'mscs-cats' ) ).appendTo( row3 ); 
-	jQuery( '<div/>' ).attr( 'id', 'mscs-added' ).appendTo( row3 );
+	jQuery( '<span>' ).attr( 'class', 'untercat-hinw' ).text( '(' + mediaWiki.msg( 'mscs-untercat-hinw' ) + ')' ).appendTo( row2 );
+	jQuery( '<span>' ).attr( 'class', 'label' ).text( mediaWiki.msg( 'mscs-cats' ) ).appendTo( row3 ); 
+	jQuery( '<div>' ).attr( 'id', 'mscs-added' ).appendTo( row3 );
 
 	mscsGetPageCats( mediaWiki.config.get( 'wgArticleId' ) );
 }

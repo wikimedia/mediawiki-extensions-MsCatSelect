@@ -9,12 +9,12 @@ class MsCatSelect {
 		$wgOut->addModules( 'ext.MsCatSelect' );
 
 		// Make the configuration variables available to JavaScript
-		$mscsVars = array(
+		$mscsVars = [
 			'MainCategories' => $wgMSCS_MainCategories,
 			'UseNiceDropdown' => $wgMSCS_UseNiceDropdown,
 			'WarnNoCategories' => $wgMSCS_WarnNoCategories,
 			'WarnNoCategoriesException' => str_replace( ' ', '_', $wgMSCS_WarnNoCategoriesException ),
-		);
+		];
 		$mscsVars = json_encode( $mscsVars, true );
 		$wgOut->addScript( "<script>var mscsVars = $mscsVars;</script>" );
 		return true;
@@ -33,17 +33,11 @@ class MsCatSelect {
 		// Get localised namespace string
 		$categoryNamespace = $wgContLang->getNsText( NS_CATEGORY );
 
-		// Default sort key is page name with stripped namespace name, otherwise sorting is ugly
-		if ( $editPage->getContextTitle()->getNamespace() == NS_MAIN ) {
-			$default_sortkey = "";
-		} else {
-			$default_sortkey = "|{{PAGENAME}}";
-		}
-
 		// Iterate through all selected category entries:
 		$text = "\n";
 		if ( array_key_exists( 'SelectCategoryList', $_POST ) ) {
 			foreach ( $_POST['SelectCategoryList'] as $category ) {
+				$category = rtrim( $category, '|' ); // If the sort key is empty, remove it
 				$text .= "\n[[" . $categoryNamespace . ":" . $category . "]]";
 			}
 		}

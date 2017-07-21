@@ -1,18 +1,22 @@
 <?php
 
-$wgExtensionCredits['parserhook'][] = array(
+$wgExtensionCredits['parserhook'][] = [
 	'name' => 'MsCatSelect',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:MsCatSelect',
-	'version' => '6.1',
+	'version' => '6.2',
 	'descriptionmsg' => 'mscs-desc',
 	'license-name' => 'GPL-2.0+',
-	'author' => array( '[mailto:wiki@ratin.de Martin Schwindl]', '[mailto:wiki@keyler-consult.de Martin Keyler]', '[https://www.mediawiki.org/wiki/User:Luis_Felipe_Schenone Luis Felipe Schenone]' ),
-);
+	'author' => [
+		'[mailto:wiki@ratin.de Martin Schwindl]',
+		'[mailto:wiki@keyler-consult.de Martin Keyler]',
+		'[https://www.mediawiki.org/wiki/User:Sophivorus Felipe Schenone]'
+	],
+];
 
-$wgResourceModules['ext.MsCatSelect'] = array(
+$wgResourceModules['ext.MsCatSelect'] = [
 	'scripts' => 'MsCatSelect.js',
 	'styles' => 'MsCatSelect.css',
-	'messages' => array(
+	'messages' => [
 		'mscs-title',
 		'mscs-untercat',
 		'mscs-untercat-hinw',
@@ -22,11 +26,11 @@ $wgResourceModules['ext.MsCatSelect'] = array(
 		'mscs-go',
 		'mscs-created',
 		'mscs-sortkey'
-	),
+	],
 	'dependencies' => 'jquery.chosen',
 	'localBasePath' => __DIR__,
 	'remoteExtPath' => 'MsCatSelect'
-);
+];
 
 $wgExtensionMessagesFiles['MsCatSelect'] = __DIR__ . '/MsCatSelect.i18n.php';
 $wgMessagesDirs['MsCatSelect'] = __DIR__ . '/i18n';
@@ -41,4 +45,4 @@ $wgHooks['EditPage::attemptSave'][] = 'MsCatSelect::saveHook';
 $wgMSCS_MainCategories = null;
 $wgMSCS_UseNiceDropdown = true;
 $wgMSCS_WarnNoCategories = true;
-$wgMSCS_WarnNoCategoriesException = array();
+$wgMSCS_WarnNoCategoriesException = [];

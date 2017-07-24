@@ -32,7 +32,6 @@ $wgResourceModules['ext.MsCatSelect'] = [
 	'remoteExtPath' => 'MsCatSelect'
 ];
 
-$wgExtensionMessagesFiles['MsCatSelect'] = __DIR__ . '/MsCatSelect.i18n.php';
 $wgMessagesDirs['MsCatSelect'] = __DIR__ . '/i18n';
 
 $wgAutoloadClasses['MsCatSelect'] = __DIR__ . '/MsCatSelect.body.php';

@@ -1,0 +1,13 @@
+{
+	"@metadata": {},
+	"mscs-desc": "{{desc|name=MsCatSelect|url=https://www.mediawiki.org/wiki/Extension:MsCatSelect}}",
+	"mscs-title": "A label message",
+	"mscs-untercat": "A label message",
+	"mscs-untercat-hinw": "A label message",
+	"mscs-warnnocat": "A warning message",
+	"mscs-cats": "A label message",
+	"mscs-add": "A button text",
+	"mscs-go": "A button text",
+	"mscs-created": "A success message",
+	"mscs-sortkey": "A label message"
+}

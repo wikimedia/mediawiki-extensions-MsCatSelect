@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"hrh"
+			"hrh",
+			"Mainframe98"
 		]
 	},
 	"mscs-desc": "Allows  to add a page to an existing or newly creatable category via a drop-down list",
 	"mscs-title": "Categorie",
 	"mscs-untercat": "Nieuwe subcategorie",
 	"mscs-untercat-hinw": "Nieuwe categorie wordt aangemaakt in bovenstaande categorie,tenzij --- is geselecteerd",
-	"selectcategory-warnnocat": "De pagina heeft geen categorieën nog toegewezen. Bent u zeker dat u de wijzigingen opslaan?",
+	"mscs-warnnocat": "De pagina zit nog niet in een categorie. Weet u zeker dat u de wijzigingen wilt opslaan?",
 	"mscs-cats": "Toegewezen categorieën",
 	"mscs-add": "Toevoegen",
 	"mscs-go": "Aanmaken",

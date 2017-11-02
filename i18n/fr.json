@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Djiboun"
+		]
+	},
+	"mscs-desc": "Permet d'ajouter une page à une catégorie existante ou créée récemment via une liste déroulante",
+	"mscs-title": "Catégorie principale",
+	"mscs-untercat": "Nouvelle sous-catégorie",
+	"mscs-untercat-hinw": "sera créé(e) dans la catégorie sélectionnée ci-dessus",
+	"mscs-warnnocat": "Cette page n'est pas encore associée à une catégorie. Êtes-vous certain de vouloir enregistrer les modifications ?",
+	"mscs-cats": "Catégories attribuées",
+	"mscs-add": "Ajouter",
+	"mscs-go": "Créer",
+	"mscs-created": "Nouvelle catégorie créée avec succès",
+	"mscs-sortkey": "Merci d'ajouter la clé de tri par défaut à cet endroit. Elle est utilisée pour l'ordre de classement dans les pages de catégories."
+}

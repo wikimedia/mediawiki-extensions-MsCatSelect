@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ykhwong"
+		]
+	},
+	"mscs-title": "주 분류",
+	"mscs-untercat": "새 하위 분류",
+	"mscs-warnnocat": "이 문서에 아직 분류가 할당되지 않았습니다. 그래도 변경사항을 저장하시겠습니까?",
+	"mscs-cats": "할당된 분류",
+	"mscs-add": "추가",
+	"mscs-go": "만들기",
+	"mscs-created": "새 분류가 성공적으로 만들어졌습니다",
+	"mscs-sortkey": "기본 정렬키를 여기에 추가해 주십시오. 분류 개요 문서 안에서 정렬을 위해 사용됩니다."
+}

@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Liuxinyu970226"
+		]
+	},
+	"mscs-desc": "通过下拉列表允许添加页面至现有或新创建分类",
+	"mscs-title": "主分类",
+	"mscs-untercat": "新子分类",
+	"mscs-untercat-hinw": "将在上面选择的分类中创建",
+	"mscs-warnnocat": "此页面尚未分配分类。您确定要保存更改么？",
+	"mscs-cats": "分配的分类",
+	"mscs-add": "添加",
+	"mscs-go": "创建",
+	"mscs-created": "新分类已成功创建",
+	"mscs-sortkey": "请在此添加默认排序关键词。它用于分类预览页面时的排序。"
+}

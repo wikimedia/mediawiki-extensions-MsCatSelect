@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Emem.calist"
+		]
+	},
+	"mscs-desc": "May kakayahang magdagdag ng pahina sa (naka/nai)likhang kategorya sa pamamagitan ng 'drop-down list'",
+	"mscs-title": "Pangunahing Kategorya",
+	"mscs-untercat": "Panibagong kategorya",
+	"mscs-warnnocat": "Walang maipakitang kategorya ang pahina. Sigurado ka bang gusto mong baguhin?",
+	"mscs-cats": "Mga kategoryang naka-Assigned",
+	"mscs-go": "Likhain"
+}

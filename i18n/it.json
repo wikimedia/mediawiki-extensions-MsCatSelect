@@ -4,8 +4,12 @@
 			"Beta16"
 		]
 	},
+	"mscs-desc": "Consente di aggiungere una pagina a una categoria esistente o creabile nuova tramite un elenco a discesa",
 	"mscs-title": "Categoria principale",
 	"mscs-untercat": "Nuova sottocategoria",
+	"mscs-untercat-hinw": "sarà creata nella categoria selezionata sopra",
+	"mscs-warnnocat": "La pagina non ha ancora categorie assegnate. Sei sicuro di voler salvare le modifiche?",
+	"mscs-cats": "Categorie assegnate",
 	"mscs-add": "Aggiungi",
 	"mscs-go": "Crea",
 	"mscs-created": "Nuova categoria creata correttamente"

@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hamilton Abreu"
+		]
+	},
+	"mscs-desc": "Permite adicionar uma página a uma categoria existente ou a uma categoria nova usando uma lista descendente",
+	"mscs-title": "Categoria principal",
+	"mscs-untercat": "Subcategoria nova",
+	"mscs-untercat-hinw": "será criada na categoria selecionada acima",
+	"mscs-warnnocat": "Esta página ainda não tem nenhuma categoria atribuída. Tem a certeza de que pretende gravar as mudanças?",
+	"mscs-cats": "Categorias atribuídas",
+	"mscs-add": "Adicionar",
+	"mscs-go": "Criar",
+	"mscs-created": "A categoria nova foi criada",
+	"mscs-sortkey": "Adicione aqui, por favor, a chave de ordenação padrão. Ela é usada para a ordenação nas páginas das categorias."
+}

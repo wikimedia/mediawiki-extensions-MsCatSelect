@@ -7,7 +7,11 @@
 	"mscs-desc": "May kakayahang magdagdag ng pahina sa (naka/nai)likhang kategorya sa pamamagitan ng 'drop-down list'",
 	"mscs-title": "Pangunahing Kategorya",
 	"mscs-untercat": "Panibagong kategorya",
+	"mscs-untercat-hinw": ".. ay bubuuin sa loob ng napiling kategorya",
 	"mscs-warnnocat": "Walang maipakitang kategorya ang pahina. Sigurado ka bang gusto mong baguhin?",
 	"mscs-cats": "Mga kategoryang naka-Assigned",
-	"mscs-go": "Likhain"
+	"mscs-add": "Makapagdagdag",
+	"mscs-go": "Likhain",
+	"mscs-created": "Matiwasay na nabuo ang panibagong kategorya",
+	"mscs-sortkey": "Pakidagdag ang nakagawiang sortkey dito. Ito ay ginagamit para partihin ang mga nilalaman ng kategorya sa loob ng 'overview pages'."
 }

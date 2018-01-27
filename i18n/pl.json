@@ -4,8 +4,12 @@
 			"Chrumps"
 		]
 	},
+	"mscs-desc": "Pozwala dodać stronę do istniejącej lub nowo tworzonej kategorii za pomocą rozwijanej listy",
 	"mscs-title": "Kategoria główna",
 	"mscs-untercat": "Nowa podkategoria",
+	"mscs-warnnocat": "Strona nie ma jeszcze przypisanych kategorii. Czy na pewno chcesz zapisać zmiany?",
+	"mscs-cats": "Przydzielone kategorie",
 	"mscs-add": "Dodaj",
-	"mscs-go": "Utwórz"
+	"mscs-go": "Utwórz",
+	"mscs-created": "Nowa kategoria została pomyślnie utworzona"
 }

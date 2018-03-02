@@ -5,7 +5,7 @@ $wgExtensionCredits['parserhook'][] = [
 	'url' => 'https://www.mediawiki.org/wiki/Extension:MsCatSelect',
 	'version' => '6.2',
 	'descriptionmsg' => 'mscs-desc',
-	'license-name' => 'GPL-2.0+',
+	'license-name' => 'GPL-2.0-or-later',
 	'author' => [
 		'[mailto:wiki@ratin.de Martin Schwindl]',
 		'[mailto:wiki@keyler-consult.de Martin Keyler]',

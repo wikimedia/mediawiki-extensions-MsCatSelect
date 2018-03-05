@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Xuacu"
+		]
+	},
+	"mscs-desc": "Permite amestar una páxina a una categoría qu'esista o que puede crease nueva per aciu d'una llista estenderexable",
+	"mscs-title": "Categoría principal",
+	"mscs-untercat": "Subcategoría nueva",
+	"mscs-untercat-hinw": "va crease na categoría escoyida más arriba",
+	"mscs-warnnocat": "La páxina inda nun tien nenguna categoría asinada. ¿Confirmes que quies guardar los cambeos?",
+	"mscs-cats": "Categoríes asinaes",
+	"mscs-add": "Amestar",
+	"mscs-go": "Crear",
+	"mscs-created": "Creóse correutamente la subcategoría nueva",
+	"mscs-sortkey": "Añade equí la clave d'ordenación predeterminada. Esta utilízase pa clasificar dientro de les páxines de resume de categoría."
+}

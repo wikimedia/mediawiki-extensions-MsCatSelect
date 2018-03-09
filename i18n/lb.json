@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Les Meloures"
 		]
 	},
 	"mscs-title": "Haaptkategorie",
 	"mscs-untercat": "Nei Ënner-Kategorie",
 	"mscs-untercat-hinw": "gëtt an der Kategorie ugeluecht déi hei driwwer erausgesicht ass",
-	"mscs-add": "Dobäisetzen",
+	"mscs-add": "Derbäisetzen",
 	"mscs-go": "Uleeën",
 	"mscs-created": "Nei Kategorie gouf ugeluecht"
 }

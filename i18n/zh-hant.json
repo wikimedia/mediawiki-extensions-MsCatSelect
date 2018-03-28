@@ -1,8 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Kly"
 		]
 	},
-	"mscs-add": "新增"
+	"mscs-desc": "允許透過下拉式清單來在現有或新建立分類裡添加頁面",
+	"mscs-title": "主分類",
+	"mscs-untercat": "新子分類",
+	"mscs-untercat-hinw": "將會在以上所選的分類裡建立",
+	"mscs-warnnocat": "頁面尚未有分配的分類，您確定要儲存更改嗎？",
+	"mscs-cats": "已分配的分類",
+	"mscs-add": "新增",
+	"mscs-go": "建立",
+	"mscs-created": "新分類已成功建立",
+	"mscs-sortkey": "請在此添加預設的排序鍵，它會使用於以分類排序預覽頁面。"
 }

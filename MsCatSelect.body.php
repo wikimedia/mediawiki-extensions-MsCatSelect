@@ -70,4 +70,14 @@ class MsCatSelect {
 
 		return true;
 	}
+
+	static function onRegistration( ) {
+		global $wgWikimediaJenkinsCI, $wgMSCS_WarnNoCategories;
+
+		if ( isset ( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI === true ) {
+			// disable javascript alerts for webdriver.io tests
+			$wgMSCS_WarnNoCategories = false;
+		}
+
+	}
 }

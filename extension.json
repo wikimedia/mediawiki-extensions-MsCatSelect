@@ -43,6 +43,7 @@
 		"localBasePath": "",
 		"remoteExtPath": "MsCatSelect"
 	},
+	"callback": "MsCatSelect::onRegistration",
 	"Hooks": {
 		"EditPage::showEditForm:initial": [
 			"MsCatSelect::start",

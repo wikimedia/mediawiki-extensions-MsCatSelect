@@ -28,7 +28,7 @@
 	float: left;
 }
 
-#MsCatSelect .chzn-container {
+#MsCatSelect .chosen-container {
 	float: left;
 }
 
@@ -36,7 +36,7 @@
 	float: left;
 }
 
-#MsCatSelect .chzn-container-single .chzn-single span {
+#MsCatSelect .chosen-container-single .chosen-single span {
 	text-overflow: clip;
 }
 

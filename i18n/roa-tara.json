@@ -7,6 +7,11 @@
 	"mscs-desc": "Conzente de aggiungere 'na pàgene a 'na categorije ca esiste o ccreabbele nove ausanne 'n'elenghe a discese",
 	"mscs-title": "Categorije prengepàle",
 	"mscs-untercat": "Sottecategorija nove",
+	"mscs-untercat-hinw": "avène ccrejate jndrìà categorije scacchiate sus",
+	"mscs-warnnocat": "'A pàgene non ge tène angore categorije assegnate. Sì secure de vulè reggistrà le cangiaminde?",
+	"mscs-cats": "Categorije assegnate",
 	"mscs-add": "Aggiunge",
-	"mscs-go": "Ccreje"
+	"mscs-go": "Ccreje",
+	"mscs-created": "Categorije nove ccrejate",
+	"mscs-sortkey": "Pe piacere aggiunge aqquà 'na chiave de ordenamende predefinite. Avène ausate pe l'ordenamende jndre a le  pàggene de panorameche d'a categorije-"
 }

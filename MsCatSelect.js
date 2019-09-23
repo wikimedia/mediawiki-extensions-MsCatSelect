@@ -168,7 +168,7 @@ function mscsCreateNewCat( newCat, oldCat ) {
 		'section': 'new',
 		//'summary': 'MsCatSelect',
 		'text': catContent,
-		'token': mediaWiki.user.tokens.get( 'editToken' ),
+		'token': mediaWiki.user.tokens.get( 'csrfToken' ),
 		'createonly': true,
 		'format': 'json'
 	}).done( function( data ) {

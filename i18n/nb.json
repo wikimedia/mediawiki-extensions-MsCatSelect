@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"mscs-desc": "Lar deg legge til en side i en kategori via en nedtrekksliste",
+	"mscs-title": "Hovedkategori",
+	"mscs-untercat": "Ny underkategori",
+	"mscs-untercat-hinw": "opprettes i kategorien valgt ovenfor",
+	"mscs-warnnocat": "Siden har ingen tildelte kategorier ennå. Er du sikker på at du vil lagre endringene?",
+	"mscs-cats": "Tildelte kategorier",
+	"mscs-add": "Legg til",
+	"mscs-go": "Opprett",
+	"mscs-created": "Ny kategori opprettet",
+	"mscs-sortkey": "Legg til standard sorteringsnøkkel her. Den brukes for å sortere innen kategorisidene."
+}

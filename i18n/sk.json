@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dasperg"
+		]
+	},
+	"mscs-desc": "Týmto rozšírením je možné prostredníctvom DropDown-u priradiť stránku existujúcej alebo novej kategórii alebo vytvoriť nové podkategórie.",
+	"mscs-title": "Hlavné kategórie",
+	"mscs-untercat": "Nová podkategória",
+	"mscs-untercat-hinw": "bude vytvorená vo vyššie uvedenej kategorii",
+	"mscs-warnnocat": "Stránka zatiaľ nemá priradené žiadne kategórie. Ste si istý, že chcete uložiť zmeny?",
+	"mscs-cats": "Priradené kategórie",
+	"mscs-add": "Pridať",
+	"mscs-go": "Vytvoriť",
+	"mscs-created": "Nová kategória bola úspešne vytvorená",
+	"mscs-sortkey": "Sem zadajte predvolený kľúč zoradenia. Používa sa na triedenie na stránkach prehľadu kategórií."
+}

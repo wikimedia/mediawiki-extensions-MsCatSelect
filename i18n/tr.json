@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"BaRaN6161 TURK"
+		]
+	},
+	"mscs-desc": "Bir açılır liste aracılığıyla varolan veya yeni yaratılabilir bir kategoriye sayfa eklemenizi sağlar",
+	"mscs-title": "Ana Kategori",
+	"mscs-untercat": "Yeni alt kategori",
+	"mscs-untercat-hinw": "yukarıda seçilen kategoride oluşturulacak",
+	"mscs-warnnocat": "Sayfada henüz bir kategori bulunmuyor. Değişiklikleri kaydetmek istediğinize emin misiniz?",
+	"mscs-cats": "Atanan kategoriler",
+	"mscs-add": "Ekle",
+	"mscs-go": "Oluştur",
+	"mscs-created": "Yeni kategori başarıyla oluşturuldu",
+	"mscs-sortkey": "Lütfen varsayılan sıralama anahtarını buraya ekleyin. Kategoriye genel bakış sayfalarında sıralama yapmak için kullanılır."
+}

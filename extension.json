@@ -1,10 +1,10 @@
 {
 	"name": "MsCatSelect",
-	"version": "6.3",
+	"version": "7.0",
 	"author": [
 		"[mailto:wiki@ratin.de Martin Schwindl]",
 		"[mailto:wiki@keyler-consult.de Martin Keyler]",
-		"[https://www.mediawiki.org/wiki/User:Sophivorus Felipe Schenone]"
+		"[https://www.mediawiki.org/wiki/User:Sophivorus Sophivorus]"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:MsCatSelect",
 	"descriptionmsg": "mscs-desc",
@@ -19,7 +19,7 @@
 		]
 	},
 	"AutoloadClasses": {
-		"MsCatSelect": "MsCatSelect.body.php"
+		"MsCatSelect": "MsCatSelect.php"
 	},
 	"ResourceModules": {
 		"ext.MsCatSelect": {
@@ -46,14 +46,14 @@
 	"callback": "MsCatSelect::onRegistration",
 	"Hooks": {
 		"EditPage::showEditForm:initial": [
-			"MsCatSelect::start",
+			"MsCatSelect::init",
 			"MsCatSelect::showHook"
 		],
 		"EditPage::attemptSave": "MsCatSelect::saveHook"
 	},
 	"config": {
 		"MSCS_MainCategories": {
-			"value": null
+			"value": []
 		},
 		"MSCS_UseNiceDropdown": {
 			"value": true

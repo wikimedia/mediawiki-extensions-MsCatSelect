@@ -10,13 +10,13 @@ function mscsGetUncategorizedCats( dd ) {
 		'list': 'querypage',
 		'qppage': 'Uncategorizedcategories',
 		'qplimit': 500
-    }).done( function( data ) {
-		mediaWiki.log( data );
+	}).done( function( data ) {
+		//mediaWiki.log( data );
 		if ( data && data.query && data.query.querypage ) {
 			// Success!
 			jQuery.each( data.query.querypage.results, function( index, val ) {
 				jQuery( '<option>', { value: index + 1, text: val.value.replace( /_/g, ' ' ) } ).appendTo( dd );
-			});
+			} );
 			if ( chosenDropDown ) {
 				dd.chosen( { disableSearchThreshold: 6 } );
 				jQuery( '#mscs_dd_0_chzn' ).width( dd.width() + 20 );
@@ -26,19 +26,19 @@ function mscsGetUncategorizedCats( dd ) {
 		} else {
 			mediaWiki.log( 'Error: Unknown result from API.' );
 		}
-	});
+	} );
 }
 
 function mscsGetSubcats( maincat, ebene, container ) {
 	mediaWiki.api.get({
 		'format': 'json',
-        'action': 'query',
-        'list': 'categorymembers',
-        'cmtitle': 'Category:' + maincat,
-        'cmtype': 'subcat',
-        'cmlimit': 'max'
+		'action': 'query',
+		'list': 'categorymembers',
+		'cmtitle': 'Category:' + maincat,
+		'cmtype': 'subcat',
+		'cmlimit': 'max'
 	}).done( function( data ) {
-		mediaWiki.log( data );
+		//mediaWiki.log( data );
 		if ( data && data.query && data.query.categorymembers ) {
 			// Success!
 			if ( data.query.categorymembers.length > 0 ) {
@@ -49,12 +49,12 @@ function mscsGetSubcats( maincat, ebene, container ) {
 				jQuery.each( data.query.categorymembers, function( index, val ) {
 					var listElement = val.title.split( ':', 2 );
 					jQuery( '<option>', { value: index + 1, text: listElement[1] } ).appendTo( dd );
-				});
+				} );
 				if ( chosenDropDown ) {
-					dd.chosen({ disableSearchThreshold: 6 });
+					dd.chosen({ disableSearchThreshold: 6 } );
 					jQuery( '#mscs_dd_' + ( ebene + 1 ) + '_chzn' ).width( dd.width() + 20 );
 				}
-			} else { //no subcats
+			} else { // No subcats
 				jQuery( '<div>' ).attr( 'class', 'no-node' ).prependTo( jQuery( '#mscs_subcat_' + ebene ) );
 			}
 		} else if ( data && data.error ) {
@@ -62,32 +62,32 @@ function mscsGetSubcats( maincat, ebene, container ) {
 		} else {
 			mediaWiki.log( 'Error: Unknown result from API.' );
 		}
-	});
+	} );
 }
 
 function mscsCreateDropDown( maincat, ebene ) {
 	var dd = jQuery( '<select>' ).attr( 'id', 'mscs_dd_' + ebene ).change( function () {
 		var container = jQuery( '#mscs_subcat_' + ebene ).empty();
 
-		if ( jQuery( this ).val() !== '0' ) { //not ---
+		if ( jQuery( this ).val() !== 0 ) { // Not ---
 			selectedCat = jQuery( 'option:selected', this ).text();
 			mscsGetSubcats( selectedCat, ebene, container );
-		} else if ( ebene === 0 ) { //--- and nothing
-			selectedCat = ''; //Fall back to the previous category, if any
+		} else if ( ebene === 0 ) { // --- and nothing
+			selectedCat = ''; // Fall back to the previous category, if any
 		} else {
 			selectedCat = jQuery( '#MsCatSelect option:selected:eq(' + ( ebene - 1 ) + ')' ).text();
 		}
-	});
+	} );
 
-	jQuery( '<option>', { value: '0', text: '---' } ).appendTo( dd );
+	jQuery( '<option>', { value: 0, text: '---' } ).appendTo( dd );
 
-	if ( ebene === 0 && maincat === '' ) { //first dd
-		if ( mscsVars.MainCategories === null ) {
+	if ( ebene === 0 && maincat === '' ) { // First dd
+		if ( mscsVars.MainCategories === [] ) {
 			mscsGetUncategorizedCats( dd );
 		} else {
 			jQuery.each( mscsVars.MainCategories, function( ddIndex, ddValue ) {
 				jQuery( '<option>', { value: ddIndex + 1, text: ddValue } ).appendTo( dd );
-			});
+			} );
 		}
 	}
 	return dd;
@@ -123,7 +123,7 @@ function mscsAddCat( category, sortkey ) {
 }
 
 function mscsGetPageCats( pageId ) {
-	//api.php?action=query&titles=Albert%20Einstein&prop=categories
+	// api.php?action=query&titles=Albert%20Einstein&prop=categories
 	mediaWiki.api.get({
 		'format': 'json',
 		'action': 'query',
@@ -131,24 +131,24 @@ function mscsGetPageCats( pageId ) {
 		'prop': 'categories',
 		'clprop': 'sortkey'
 	}).done( function( data ) {
-		mediaWiki.log( data );
+		//mediaWiki.log( data );
 		if ( data && data.query && data.query.pages && data.query.pages[ pageId ] ) {
 			// Success!
 			if ( data.query.pages[ pageId ].categories ) {
-				mediaWiki.log(data.query.pages[pageId].categories[0].title);
+				//mediaWiki.log( data.query.pages[pageId].categories[0].title );
 				jQuery.each( data.query.pages[ pageId ].categories, function( index, value ) {
 					var titles = value.title.split( ':', 2 );
 					mscsAddCat( titles[1], value.sortkeyprefix );
-				});
+				} );
 			} else {
 				mediaWiki.log( 'No subcategories' );
 			}
-	    } else if ( data && data.error ) {
-	        mediaWiki.log( 'Error: API returned error code "' + data.error.code + '": ' + data.error.info );
-	    } else {
-	        mediaWiki.log( 'Error: Unknown result from API.' );
-	    }
-	});
+		} else if ( data && data.error ) {
+			mediaWiki.log( 'Error: API returned error code "' + data.error.code + '": ' + data.error.info );
+		} else {
+			mediaWiki.log( 'Error: Unknown result from API.' );
+		}
+	} );
 }
 
 function mscsCreateNewCat( newCat, oldCat ) {
@@ -166,25 +166,25 @@ function mscsCreateNewCat( newCat, oldCat ) {
 		'action': 'edit',
 		'title': catTitle,
 		'section': 'new',
-		//'summary': 'MsCatSelect',
+		// 'summary': 'MsCatSelect',
 		'text': catContent,
 		'token': mediaWiki.user.tokens.get( 'csrfToken' ),
 		'createonly': true,
 		'format': 'json'
 	}).done( function( data ) {
-		mediaWiki.log( data );
+		//mediaWiki.log( data );
 		if ( data && data.edit && data.edit.result === 'Success' ) {
 			alert( mediaWiki.msg( 'mscs-created' ) );
 			jQuery( '#MsCatSelect #newCatInput' ).val( '' );
 
-			var createdCat = data.edit.title.split( ':', 2 ); //mediaWiki macht ersten Buchstaben groß
+			var createdCat = data.edit.title.split( ':', 2 ); // mediaWiki macht ersten Buchstaben groß
 			//mediaWiki.log( latestDropDown );
 			var ddNext = jQuery( '#mscs_dd_' + ( latestDropDown + 1 ) );
 
 			jQuery( '<option>', { value: 99, text: createdCat[1] } ).appendTo( ddNext );
 			jQuery( '#mscs_subcat_' + latestDropDown + ' .node' ).removeClass( 'no-node' );
 			if ( chosenDropDown ) {
-				ddNext.chosen(); //wenn dropdown noch nicht existiert
+				ddNext.chosen(); // wenn dropdown noch nicht existiert
 				ddNext.trigger( 'liszt:updated' );
 			}
 			mscsAddCat( createdCat[1], '' );
@@ -197,7 +197,7 @@ function mscsCreateNewCat( newCat, oldCat ) {
 		} else {
 			mediaWiki.log( 'Error: Unknown result from API.' );
 		}
-	});
+	} );
 }
 
 function mscsCreateArea() {
@@ -215,7 +215,7 @@ function mscsCreateArea() {
 	if ( mscsVars.MainCategories !== null && chosenDropDown ) {
 		jQuery( '#mscs_dd_0' ).chosen();
 		//jQuery( '.chzn-container' ).css( 'width', '+=10' );
-        //jQuery( '.chzn-drop' ).css( 'width', '+=10' );
+		//jQuery( '.chzn-drop' ).css( 'width', '+=10' );
 	}
 
 	jQuery( '<div>' ).attr( 'id', 'mscs_subcat_0' ).attr( 'class', 'subcat' ).appendTo( row1 );
@@ -252,8 +252,6 @@ function mscsCheckCategories() {
 
 jQuery( function () {
 	chosenDropDown = true ? mscsVars.UseNiceDropdown : false;
-
 	mscsCreateArea();
-
 	jQuery( '#editform' ).submit( mscsCheckCategories );
-});
+} );

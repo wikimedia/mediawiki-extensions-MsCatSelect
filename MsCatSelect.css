@@ -32,6 +32,14 @@
 	float: left;
 }
 
+#MsCatSelect .chosen-drop {
+	min-width: 10em;
+}
+
+#MsCatSelect .chosen-results {
+	margin: 0;
+}
+
 #MsCatSelect .row1 select {
 	float: left;
 }

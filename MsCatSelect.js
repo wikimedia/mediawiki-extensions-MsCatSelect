@@ -4,18 +4,21 @@ var latestDropDown = '';
 var chosenDropDown = true;
 
 function mscsGetUncategorizedCats( dd ) {
+	// api.php?action=query&list=querypage&qppage=Uncategorizedcategories&qplimit=500
 	mediaWiki.api.get({
 		'format': 'json',
+		'formatversion': 2,
 		'action': 'query',
 		'list': 'querypage',
 		'qppage': 'Uncategorizedcategories',
 		'qplimit': 500
-	}).done( function( data ) {
+	} ).done( function( data ) {
 		//mediaWiki.log( data );
 		if ( data && data.query && data.query.querypage ) {
 			// Success!
-			jQuery.each( data.query.querypage.results, function( index, val ) {
-				jQuery( '<option>', { value: index + 1, text: val.value.replace( /_/g, ' ' ) } ).appendTo( dd );
+			jQuery.each( data.query.querypage.results, function ( index, result ) {
+				var category = result.title.substring( result.title.replace( /_/g, ' ' ).indexOf( ':' ) + 1 );
+				jQuery( '<option>', { value: index + 1, text: category } ).appendTo( dd );
 			} );
 			if ( chosenDropDown ) {
 				dd.chosen( { disableSearchThreshold: 6 } );
@@ -37,7 +40,7 @@ function mscsGetSubcats( maincat, ebene, container ) {
 		'cmtitle': 'Category:' + maincat,
 		'cmtype': 'subcat',
 		'cmlimit': 'max'
-	}).done( function( data ) {
+	} ).done( function( data ) {
 		//mediaWiki.log( data );
 		if ( data && data.query && data.query.categorymembers ) {
 			// Success!
@@ -82,10 +85,10 @@ function mscsCreateDropDown( maincat, ebene ) {
 	jQuery( '<option>', { value: 0, text: '---' } ).appendTo( dd );
 
 	if ( ebene === 0 && maincat === '' ) { // First dd
-		if ( mscsVars.MainCategories === [] ) {
+		if ( mscsVars.MainCategories.length === 0 ) {
 			mscsGetUncategorizedCats( dd );
 		} else {
-			jQuery.each( mscsVars.MainCategories, function( ddIndex, ddValue ) {
+			jQuery.each( mscsVars.MainCategories, function ( ddIndex, ddValue ) {
 				jQuery( '<option>', { value: ddIndex + 1, text: ddValue } ).appendTo( dd );
 			} );
 		}
@@ -100,7 +103,7 @@ function mscsAddCat( category, sortkey ) {
 			'class': 'mscs_entry',
 			'category': category,
 			'sortkey': sortkey
-		}).text( category ).appendTo( jQuery( '#mscs-added' ) );
+		} ).text( category ).appendTo( jQuery( '#mscs-added' ) );
 
 		var input = jQuery( '<input>' ).attr({
 			'class': 'mscs_checkbox',
@@ -108,7 +111,7 @@ function mscsAddCat( category, sortkey ) {
 			'name': 'SelectCategoryList[]',
 			'value': category + '|' + sortkey,
 			'checked': true
-		}).prependTo( entry );
+		} ).prependTo( entry );
 
 		jQuery( '<span>' ).attr( 'class', 'img-sortkey' ).attr( 'title', sortkey ).click( function () {
 			var oldSortkey = entry.attr( 'sortkey' );
@@ -118,7 +121,7 @@ function mscsAddCat( category, sortkey ) {
 				input.attr( 'value', category + '|' + newSortkey );
 				jQuery( this ).attr( 'title', newSortkey );
 			}
-		}).appendTo( entry );
+		} ).appendTo( entry );
 	}
 }
 
@@ -130,7 +133,7 @@ function mscsGetPageCats( pageId ) {
 		'titles': mediaWiki.config.get( 'wgPageName' ),
 		'prop': 'categories',
 		'clprop': 'sortkey'
-	}).done( function( data ) {
+	} ).done( function( data ) {
 		//mediaWiki.log( data );
 		if ( data && data.query && data.query.pages && data.query.pages[ pageId ] ) {
 			// Success!
@@ -171,7 +174,7 @@ function mscsCreateNewCat( newCat, oldCat ) {
 		'token': mediaWiki.user.tokens.get( 'csrfToken' ),
 		'createonly': true,
 		'format': 'json'
-	}).done( function( data ) {
+	} ).done( function( data ) {
 		//mediaWiki.log( data );
 		if ( data && data.edit && data.edit.result === 'Success' ) {
 			alert( mediaWiki.msg( 'mscs-created' ) );
@@ -212,7 +215,7 @@ function mscsCreateArea() {
 
 	mscsCreateDropDown( '', 0 ).appendTo( row1 );
 
-	if ( mscsVars.MainCategories !== null && chosenDropDown ) {
+	if ( mscsVars.MainCategories.length > 0 && chosenDropDown ) {
 		jQuery( '#mscs_dd_0' ).chosen();
 		//jQuery( '.chzn-container' ).css( 'width', '+=10' );
 		//jQuery( '.chzn-drop' ).css( 'width', '+=10' );
@@ -222,7 +225,7 @@ function mscsCreateArea() {
 
 	jQuery( '<div>' ).attr( 'id', 'mscs_add' ).attr( 'class', 'addcat' ).click( function() {
 		mscsAddCat( selectedCat, '' );
-	}).text( mediaWiki.msg( 'mscs-add' ) ).appendTo( row1 );
+	} ).text( mediaWiki.msg( 'mscs-add' ) ).appendTo( row1 );
 
 	jQuery( '<span>' ).attr( 'class', 'label' ).text( mediaWiki.msg( 'mscs-untercat' ) ).appendTo( row2 );
 	var newCatInput = jQuery( '<input>' ).attr( 'class', 'input' ).attr( 'type', 'text' ).attr( 'id', 'newCatInput' ).attr( 'size', '30' ).appendTo( row2 );
@@ -230,7 +233,7 @@ function mscsCreateArea() {
 
 		mscsCreateNewCat( newCatInput.val(), selectedCat );
 
-	}).text( mediaWiki.msg( 'mscs-go' ) ).appendTo( row2 );
+	} ).text( mediaWiki.msg( 'mscs-go' ) ).appendTo( row2 );
 
 	jQuery( '<span>' ).attr( 'class', 'untercat-hinw' ).text( '(' + mediaWiki.msg( 'mscs-untercat-hinw' ) + ')' ).appendTo( row2 );
 	jQuery( '<span>' ).attr( 'class', 'label' ).text( mediaWiki.msg( 'mscs-cats' ) ).appendTo( row3 );

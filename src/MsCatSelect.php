@@ -5,10 +5,14 @@ use MediaWiki\MediaWikiServices;
 class MsCatSelect {
 
 	/**
-	 * Initialization
+	 * @param EditPage &$editPage
+	 * @param OutputPage &$output
 	 */
 	static function init( EditPage &$editPage, OutputPage &$output ) {
-		global $wgMSCS_MainCategories, $wgMSCS_UseNiceDropdown, $wgMSCS_WarnNoCategories, $wgMSCS_WarnNoCategoriesException;
+		global $wgMSCS_MainCategories,
+			$wgMSCS_UseNiceDropdown,
+			$wgMSCS_WarnNoCategories,
+			$wgMSCS_WarnNoCategoriesException;
 
 		// Load module
 		$output->addModules( 'ext.MsCatSelect' );
@@ -26,7 +30,10 @@ class MsCatSelect {
 	}
 
 	/**
-	 * Entry point for the hook and main worker function for editing the page
+	 * Entry point for the hook and main worker function for editing the page.
+	 *
+	 * @param EditPage $editPage
+	 * @param OutputPage $output
 	 */
 	static function showHook( EditPage $editPage, OutputPage $output ) {
 		self::cleanTextbox( $editPage );
@@ -34,10 +41,11 @@ class MsCatSelect {
 	}
 
 	/**
-	 * Entry point for the hook and main worker function for saving the page
+	 * Entry point for the hook and main worker function for saving the page.
+	 *
+	 * @param EditPage $editPage
 	 */
 	static function saveHook( EditPage $editPage ) {
-
 		// Get localised namespace string
 		$language = MediaWikiServices::getInstance()->getContentLanguage();
 		$categoryNamespace = $language->getNsText( NS_CATEGORY );
@@ -46,7 +54,8 @@ class MsCatSelect {
 		$text = "\n";
 		if ( array_key_exists( 'SelectCategoryList', $_POST ) ) {
 			foreach ( $_POST['SelectCategoryList'] as $category ) {
-				$category = rtrim( $category, '|' ); // If the sort key is empty, remove it
+				// If the sort key is empty, remove it
+				$category = rtrim( $category, '|' );
 				$text .= "\n[[" . $categoryNamespace . ":" . $category . "]]";
 			}
 		}
@@ -56,10 +65,11 @@ class MsCatSelect {
 	}
 
 	/**
-	 * Remove the old category tag from the text the user views in the editbox
+	 * Remove the old category tag from the text the user views in the editbox.
+	 *
+	 * @param EditPage $editPage
 	 */
 	static function cleanTextbox( $editPage ) {
-
 		// Get localised namespace string
 		$language = MediaWikiServices::getInstance()->getContentLanguage();
 		$categoryNamespace = $language->getNsText( NS_CATEGORY );
@@ -86,7 +96,7 @@ class MsCatSelect {
 	static function onRegistration() {
 		global $wgWikimediaJenkinsCI, $wgMSCS_WarnNoCategories;
 
-		if ( isset ( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI === true ) {
+		if ( isset( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI === true ) {
 			// disable javascript alerts for webdriver.io tests
 			$wgMSCS_WarnNoCategories = false;
 		}

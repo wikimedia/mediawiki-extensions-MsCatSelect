@@ -19,12 +19,12 @@
 		]
 	},
 	"AutoloadClasses": {
-		"MsCatSelect": "MsCatSelect.php"
+		"MsCatSelect": "src/MsCatSelect.php"
 	},
 	"ResourceModules": {
 		"ext.MsCatSelect": {
-			"scripts": "MsCatSelect.js",
-			"styles": "MsCatSelect.css",
+			"scripts": "js/MsCatSelect.js",
+			"styles": "css/MsCatSelect.css",
 			"messages": [
 				"mscs-title",
 				"mscs-untercat",
@@ -40,8 +40,8 @@
 		}
 	},
 	"ResourceFileModulePaths": {
-		"localBasePath": "",
-		"remoteExtPath": "MsCatSelect"
+		"localBasePath": "resources",
+		"remoteExtPath": "MsCatSelect/resources"
 	},
 	"callback": "MsCatSelect::onRegistration",
 	"Hooks": {

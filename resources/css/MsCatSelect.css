@@ -88,13 +88,13 @@
 }
 
 #MsCatSelect .node, #MsCatSelect .no-node {
-	background: url('images/node.png') no-repeat 8px 5px;
+	background: url('../images/node.png') no-repeat 8px 5px;
 	padding: 12px 15px;
 	float: left;
 }
 
 #MsCatSelect .no-node {
-	background: url('images/node-no.png') no-repeat 8px 5px;
+	background: url('../images/node-no.png') no-repeat 8px 5px;
 }
 
 #MsCatSelect .subcat-dd select {
@@ -136,7 +136,7 @@
 }
 
 #MsCatSelect #mscs-added .img-sortkey {
-	background: url('images/sortkey.png') no-repeat 0px 0px;
+	background: url('../images/sortkey.png') no-repeat 0px 0px;
 	height: 5px;
 	width: 10px;
 	padding: 0px 6px 0px 6px;

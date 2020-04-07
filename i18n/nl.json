@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"hrh",
-			"Mainframe98"
+			"Mainframe98",
+			"hrh"
 		]
 	},
 	"mscs-desc": "Allows  to add a page to an existing or newly creatable category via a drop-down list",

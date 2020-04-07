@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ángel J. Vico",
-			"Fitoschido"
+			"Fitoschido",
+			"Ángel J. Vico"
 		]
 	},
 	"mscs-desc": "Esta extensión permite asignar categorías y subcategorías a una página escogiéndolas de una lista desplegable. También permite crear nuevas categorías desde la página de edición.",

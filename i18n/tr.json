@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"BaRaN6161 TURK"
+			"BaRaN6161 TURK",
+			"MuratTheTurkish"
 		]
 	},
-	"mscs-desc": "Bir açılır liste aracılığıyla varolan veya yeni yaratılabilir bir kategoriye sayfa eklemenizi sağlar",
+	"mscs-desc": "Bir açılır liste üzerinden varolan veya yeni yaratılabilir bir kategoriye sayfa eklemenizi sağlar",
 	"mscs-title": "Ana Kategori",
 	"mscs-untercat": "Yeni alt kategori",
 	"mscs-untercat-hinw": "yukarıda seçilen kategoride oluşturulacak",

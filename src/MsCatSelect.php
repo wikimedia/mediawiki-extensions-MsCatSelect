@@ -5,10 +5,10 @@ use MediaWiki\MediaWikiServices;
 class MsCatSelect {
 
 	/**
-	 * @param EditPage &$editPage
-	 * @param OutputPage &$output
+	 * @param EditPage $editPage
+	 * @param OutputPage $output
 	 */
-	static function init( EditPage &$editPage, OutputPage &$output ) {
+	public static function init( EditPage $editPage, OutputPage $output ) {
 		global $wgMSCS_MainCategories,
 			$wgMSCS_UseNiceDropdown,
 			$wgMSCS_WarnNoCategories,
@@ -26,7 +26,6 @@ class MsCatSelect {
 		];
 		$mscsVars = json_encode( $mscsVars, true );
 		$output->addScript( "<script>var mscsVars = $mscsVars;</script>" );
-		return true;
 	}
 
 	/**
@@ -35,9 +34,8 @@ class MsCatSelect {
 	 * @param EditPage $editPage
 	 * @param OutputPage $output
 	 */
-	static function showHook( EditPage $editPage, OutputPage $output ) {
+	public static function showHook( EditPage $editPage, OutputPage $output ) {
 		self::cleanTextbox( $editPage );
-		return true;
 	}
 
 	/**
@@ -45,7 +43,7 @@ class MsCatSelect {
 	 *
 	 * @param EditPage $editPage
 	 */
-	static function saveHook( EditPage $editPage ) {
+	public static function saveHook( EditPage $editPage ) {
 		// Get localised namespace string
 		$language = MediaWikiServices::getInstance()->getContentLanguage();
 		$categoryNamespace = $language->getNsText( NS_CATEGORY );
@@ -60,8 +58,6 @@ class MsCatSelect {
 			}
 		}
 		$editPage->textbox1 .= $text;
-
-		return true;
 	}
 
 	/**
@@ -69,7 +65,7 @@ class MsCatSelect {
 	 *
 	 * @param EditPage $editPage
 	 */
-	static function cleanTextbox( $editPage ) {
+	private static function cleanTextbox( $editPage ) {
 		// Get localised namespace string
 		$language = MediaWikiServices::getInstance()->getContentLanguage();
 		$categoryNamespace = $language->getNsText( NS_CATEGORY );
@@ -89,11 +85,9 @@ class MsCatSelect {
 		}
 		// Place the cleaned text into the text box:
 		$editPage->textbox1 = trim( $cleanText );
-
-		return true;
 	}
 
-	static function onRegistration() {
+	public static function onRegistration() {
 		global $wgWikimediaJenkinsCI, $wgMSCS_WarnNoCategories;
 
 		if ( isset( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI === true ) {

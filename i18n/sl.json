@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Eleassar",
 			"HairyFotr"
 		]
 	},
 	"mscs-untercat": "Nova podkategorija",
+	"mscs-add": "Dodaj",
 	"mscs-go": "Ustvari"
 }

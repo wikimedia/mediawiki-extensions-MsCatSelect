@@ -23,7 +23,7 @@
 	},
 	"ResourceModules": {
 		"ext.MsCatSelect": {
-			"scripts": "js/MsCatSelect.js",
+			"packageFiles": "js/MsCatSelect.js",
 			"styles": "css/MsCatSelect.css",
 			"messages": [
 				"mscs-title",

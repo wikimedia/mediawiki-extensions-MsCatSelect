@@ -132,7 +132,8 @@ function mscsGetPageCats( pageId ) {
 		'action': 'query',
 		'titles': mediaWiki.config.get( 'wgPageName' ),
 		'prop': 'categories',
-		'clprop': 'sortkey'
+		'clprop': 'sortkey',
+		'cllimit': 'max',
 	} ).done( function( data ) {
 		//mediaWiki.log( data );
 		if ( data && data.query && data.query.pages && data.query.pages[ pageId ] ) {
@@ -217,8 +218,6 @@ function mscsCreateArea() {
 
 	if ( mscsVars.MainCategories.length > 0 && chosenDropDown ) {
 		jQuery( '#mscs_dd_0' ).chosen();
-		//jQuery( '.chzn-container' ).css( 'width', '+=10' );
-		//jQuery( '.chzn-drop' ).css( 'width', '+=10' );
 	}
 
 	jQuery( '<div>' ).attr( 'id', 'mscs_subcat_0' ).attr( 'class', 'subcat' ).appendTo( row1 );

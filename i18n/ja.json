@@ -2,9 +2,18 @@
 	"@metadata": {
 		"authors": [
 			"Ajeje Brazorf",
-			"Shirayuki"
+			"Shirayuki",
+			"MirukuPC"
 		]
 	},
+	"mscs-desc": "既存または新規に作成されたカテゴリに、ドロップダウンリストを使ってページを追加することができます。",
+	"mscs-title": "メインカテゴリ",
+	"mscs-untercat": "新しいサブカテゴリ",
+	"mscs-untercat-hinw": "上記で選択されたカテゴリに作成されます",
+	"mscs-warnnocat": "このページにはまだカテゴリが割り当てられていません。本当に変更を保存しますか？",
+	"mscs-cats": "割り当てられたカテゴリ",
 	"mscs-add": "追加",
-	"mscs-go": "作成"
+	"mscs-go": "作成",
+	"mscs-created": "新しいカテゴリの作成に成功しました",
+	"mscs-sortkey": "ここにデフォルトのソートキーを追加してください。カテゴリ概要ページ内での並べ替えに使用されます。"
 }

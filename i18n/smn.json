@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Yupik"
+			"Yupik",
+			"Seipinne"
 		]
 	},
 	"mscs-title": "Válduluokka",
-	"mscs-add": "Lasseet"
+	"mscs-add": "Lasseet",
+	"mscs-go": "Räähti"
 }

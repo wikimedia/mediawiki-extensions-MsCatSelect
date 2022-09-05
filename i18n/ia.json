@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"mscs-desc": "Permitte adder un pagina a un categoria existente o novemente creabile via un lista disrolante",
+	"mscs-title": "Categoria principal",
+	"mscs-untercat": "Nove subcategoria",
+	"mscs-untercat-hinw": "essera create in le categoria seligite hic supra",
+	"mscs-warnnocat": "Le pagina non ha ancora categorias assignate. Es tu secur de voler salveguardar le cambiamentos?",
+	"mscs-cats": "Categorias assignate",
+	"mscs-add": "Adder",
+	"mscs-go": "Crear",
+	"mscs-created": "Nove categoria create con successo",
+	"mscs-sortkey": "Per favor adde hic le clave de ordination predefinite. Es usate pro ordinar intra le paginas de vista general de categorias."
+}

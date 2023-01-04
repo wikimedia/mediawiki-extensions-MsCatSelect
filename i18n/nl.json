@@ -15,5 +15,5 @@
 	"mscs-add": "Toevoegen",
 	"mscs-go": "Aanmaken",
 	"mscs-created": "New category successfully created",
-	"mscs-sortkey": "Please add the default sortkey here. It is used for sorting within the category overview pages."
+	"mscs-sortkey": "Voeg hier de standaardsorteersleutel toe. Deze wordt gebruikt voor het sorteren binnen de categorieoverzichtspagina's."
 }

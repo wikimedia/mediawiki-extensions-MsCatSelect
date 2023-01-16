@@ -5,7 +5,14 @@
 			"Eleassar"
 		]
 	},
+	"mscs-desc": "Omogoča dodajanje strani v obstoječo ali novo ustvarjeno kategorijo s spustnim seznamom",
+	"mscs-title": "Glavna kategorija",
 	"mscs-untercat": "Nova podkategorija",
+	"mscs-untercat-hinw": "bo(do) ustvarjena(e) v zgoraj izbrani kategoriji",
+	"mscs-warnnocat": "Stran še nima dodeljenih kategorij. Ali res želite shraniti spremembe?",
+	"mscs-cats": "Dodeljene kategorije",
 	"mscs-add": "Dodaj",
-	"mscs-go": "Ustvari"
+	"mscs-go": "Ustvari",
+	"mscs-created": "Nova kategorija je bila uspešno ustvarjena",
+	"mscs-sortkey": "Tu dodajte privzeti razvrstilni ključ. Uporablja se za razvrščanje na straneh s pregledom kategorij."
 }

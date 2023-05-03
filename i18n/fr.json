@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Djiboun"
+			"Djiboun",
+			"Verdy p"
 		]
 	},
-	"mscs-desc": "Permet d'ajouter une page à une catégorie existante ou créée récemment via une liste déroulante",
+	"mscs-desc": "Permet d’ajouter une page à une catégorie existante ou créée récemment via une liste déroulante",
 	"mscs-title": "Catégorie principale",
 	"mscs-untercat": "Nouvelle sous-catégorie",
 	"mscs-untercat-hinw": "sera créé(e) dans la catégorie sélectionnée ci-dessus",

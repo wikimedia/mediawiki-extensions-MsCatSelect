@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nokeoo"
+		]
+	},
+	"mscs-desc": "Leidžia įtraukti puslapį į esamą arba naujai sukurtą kategoriją naudojant išskleidžiamą sąrašą",
+	"mscs-title": "Pagrindinė kategorija",
+	"mscs-untercat": "Nauja subkategorija",
+	"mscs-untercat-hinw": "bus sukurta aukščiau pasirinktoje kategorijoje",
+	"mscs-warnnocat": "Puslapiui dar nėra priskirtų kategorijų. Ar tikrai norite išsaugoti pakeitimus?",
+	"mscs-cats": "Priskirtos kategorijos",
+	"mscs-add": "Pridėti",
+	"mscs-go": "Sukurti",
+	"mscs-created": "Nauja kategorija sėkmingai sukurta"
+}

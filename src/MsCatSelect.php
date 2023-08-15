@@ -88,9 +88,9 @@ class MsCatSelect {
 	}
 
 	public static function onRegistration() {
-		global $wgWikimediaJenkinsCI, $wgMSCS_WarnNoCategories;
+		global $wgMSCS_WarnNoCategories;
 
-		if ( isset( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI === true ) {
+		if ( defined( 'MW_QUIBBLE_CI' ) ) {
 			// disable javascript alerts for webdriver.io tests
 			$wgMSCS_WarnNoCategories = false;
 		}

@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"LittlePaw365"
 		]
 	},
 	"mscs-desc": "通过下拉列表允许添加页面至现有或新创建分类",
@@ -13,5 +14,5 @@
 	"mscs-add": "添加",
 	"mscs-go": "创建",
 	"mscs-created": "新分类已成功创建",
-	"mscs-sortkey": "请在此添加默认排序关键词。它用于分类预览页面时的排序。"
+	"mscs-sortkey": "请在这里添加默认排序键。它会用于在分类概览页面内排序。"
 }

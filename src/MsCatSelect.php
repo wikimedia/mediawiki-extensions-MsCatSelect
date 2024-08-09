@@ -4,28 +4,15 @@ use MediaWiki\MediaWikiServices;
 
 class MsCatSelect {
 
-	/**
-	 * @param EditPage $editPage
-	 * @param OutputPage $output
-	 */
-	public static function init( EditPage $editPage, OutputPage $output ) {
-		global $wgMSCS_MainCategories,
-			$wgMSCS_UseNiceDropdown,
-			$wgMSCS_WarnNoCategories,
-			$wgMSCS_WarnNoCategoriesException;
-
-		// Load module
-		$output->addModules( 'ext.MsCatSelect' );
-
-		// Make the configuration variables available to JavaScript
-		$mscsVars = [
-			'MainCategories' => $wgMSCS_MainCategories,
-			'UseNiceDropdown' => $wgMSCS_UseNiceDropdown,
-			'WarnNoCategories' => $wgMSCS_WarnNoCategories,
-			'WarnNoCategoriesException' => str_replace( ' ', '_', $wgMSCS_WarnNoCategoriesException ),
-		];
-		$mscsVars = json_encode( $mscsVars, true );
-		$output->addScript( "<script>var mscsVars = $mscsVars;</script>" );
+	public static function onResourceLoaderGetConfigVars( array &$vars, string $skin, Config $config ) {
+		$mainCategories = $config->get( 'MSCS_MainCategories' );
+		$useNiceDropdown = $config->get( 'MSCS_UseNiceDropdown' );
+		$warnNoCategories = $config->get( 'MSCS_WarnNoCategories' );
+		$warnNoCategoriesException = $config->get( 'MSCS_WarnNoCategoriesException' );
+		$vars['wgMSCS_MainCategories'] = $mainCategories;
+		$vars['wgMSCS_UseNiceDropdown'] = $useNiceDropdown;
+		$vars['wgMSCS_WarnNoCategories'] = str_replace( ' ', '_', $warnNoCategories );
+		$vars['wgMSCS_WarnNoCategoriesException'] = str_replace( ' ', '_', $warnNoCategoriesException );
 	}
 
 	/**
@@ -34,7 +21,8 @@ class MsCatSelect {
 	 * @param EditPage $editPage
 	 * @param OutputPage $output
 	 */
-	public static function showHook( EditPage $editPage, OutputPage $output ) {
+	public static function onShowEditFormInitial( EditPage $editPage, OutputPage $output ) {
+		$output->addModules( 'ext.MsCatSelect' );
 		self::cleanTextbox( $editPage );
 	}
 
@@ -43,7 +31,7 @@ class MsCatSelect {
 	 *
 	 * @param EditPage $editPage
 	 */
-	public static function saveHook( EditPage $editPage ) {
+	public static function onAttemptSave( EditPage $editPage ) {
 		// Get localised namespace string
 		$language = MediaWikiServices::getInstance()->getContentLanguage();
 		$categoryNamespace = $language->getNsText( NS_CATEGORY );
@@ -85,14 +73,5 @@ class MsCatSelect {
 		}
 		// Place the cleaned text into the text box:
 		$editPage->textbox1 = trim( $cleanText );
-	}
-
-	public static function onRegistration() {
-		global $wgMSCS_WarnNoCategories;
-
-		if ( defined( 'MW_QUIBBLE_CI' ) ) {
-			// disable javascript alerts for webdriver.io tests
-			$wgMSCS_WarnNoCategories = false;
-		}
 	}
 }

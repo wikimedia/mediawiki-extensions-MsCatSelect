@@ -1,17 +1,18 @@
 {
+	"manifest_version": 2,
 	"name": "MsCatSelect",
-	"version": "7.2",
+	"version": "8.0",
 	"author": [
 		"[mailto:wiki@ratin.de Martin Schwindl]",
 		"[mailto:wiki@keyler-consult.de Martin Keyler]",
-		"[https://www.mediawiki.org/wiki/User:Sophivorus Sophivorus]"
+		"[https://www.mediawiki.org/wiki/User:Sophivorus Felipe Schenone]"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:MsCatSelect",
 	"descriptionmsg": "mscs-desc",
 	"license-name": "GPL-2.0-or-later",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.29.0"
+		"MediaWiki": ">= 1.39.0"
 	},
 	"MessagesDirs": {
 		"MsCatSelect": [
@@ -43,13 +44,10 @@
 		"localBasePath": "resources",
 		"remoteExtPath": "MsCatSelect/resources"
 	},
-	"callback": "MsCatSelect::onRegistration",
 	"Hooks": {
-		"EditPage::showEditForm:initial": [
-			"MsCatSelect::init",
-			"MsCatSelect::showHook"
-		],
-		"EditPage::attemptSave": "MsCatSelect::saveHook"
+		"ResourceLoaderGetConfigVars": "MsCatSelect::onResourceLoaderGetConfigVars",
+		"EditPage::showEditForm:initial": "MsCatSelect::onShowEditFormInitial",
+		"EditPage::attemptSave": "MsCatSelect::onAttemptSave"
 	},
 	"config": {
 		"MSCS_MainCategories": {
@@ -64,6 +62,5 @@
 		"MSCS_WarnNoCategoriesException": {
 			"value": []
 		}
-	},
-	"manifest_version": 2
+	}
 }

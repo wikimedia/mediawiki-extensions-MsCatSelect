@@ -3,15 +3,16 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-eslint' );
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 
-	var conf = grunt.file.readJSON( 'extension.json' );
 	grunt.initConfig( {
-		banana: conf.MessagesDirs,
+		banana: {
+			all: 'i18n/'
+		},
 		eslint: {
 			options: {
 				cache: true
 			},
 			all: [
-				'**/*.json',
+				'**/*.js{,on}',
 				'!node_modules/**',
 				'!vendor/**'
 			]

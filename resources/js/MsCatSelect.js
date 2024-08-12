@@ -239,9 +239,9 @@ const MsCatSelect = {
 			MsCatSelect.warnNoCategoriesException.indexOf( mw.config.get( 'wgRelevantPageName' ) ) === -1 &&
 			MsCatSelect.warnNoCategoriesException.indexOf( mw.config.get( 'wgNamespaceNumber' ).toString() ) === -1
 		) {
-			return OO.ui.confirm( mw.msg( 'mscs-warnnocat' ) );
+			// eslint-disable-next-line no-alert
+			return confirm( mw.msg( 'mscs-warnnocat' ) );
 		}
-		return true;
 	}
 };
 

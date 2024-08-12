@@ -57,7 +57,7 @@
 			"value": true
 		},
 		"MSCS_WarnNoCategories": {
-			"value": true
+			"value": false
 		},
 		"MSCS_WarnNoCategoriesException": {
 			"value": []

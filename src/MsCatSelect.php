@@ -58,20 +58,25 @@ class MsCatSelect {
 		$language = MediaWikiServices::getInstance()->getContentLanguage();
 		$categoryNamespace = $language->getNsText( NS_CATEGORY );
 
-		// The regular expression to find the category links:
+		// The regular expression to find the category links
 		$pattern = "\[\[({$categoryNamespace}):([^\|\]]*)(\|[^\|\]]*)?\]\]";
 
-		// The container to store the processed text:
+		// Don't remove categories in Semantic MediaWiki #ask queries
+		// https://www.mediawiki.org/wiki/Topic:Uxnm9nzhdhhypum9
+		$pattern = "(?<!#ask:)" . $pattern;
+
+		// The container to store the processed text
 		$cleanText = '';
 
 		$editText = $editPage->textbox1;
 
-		// Check linewise for category links:
-		foreach ( explode( "\n", $editText ) as $textLine ) {
-			// Filter line through pattern and store the result:
+		// Remove category links line by line
+		$textLines = explode( "\n", $editText );
+		foreach ( $textLines as $textLine ) {
 			$cleanText .= preg_replace( "/{$pattern}/i", "", $textLine ) . "\n";
 		}
-		// Place the cleaned text into the text box:
+
+		// Place the cleaned text into the text box
 		$editPage->textbox1 = trim( $cleanText );
 	}
 }

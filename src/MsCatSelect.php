@@ -1,6 +1,9 @@
 <?php
 
+use MediaWiki\Config\Config;
+use MediaWiki\EditPage\EditPage;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\OutputPage;
 
 class MsCatSelect {
 
@@ -53,7 +56,7 @@ class MsCatSelect {
 	 *
 	 * @param EditPage $editPage
 	 */
-	private static function cleanTextbox( $editPage ) {
+	private static function cleanTextbox( EditPage $editPage ) {
 		// Get localised namespace string
 		$language = MediaWikiServices::getInstance()->getContentLanguage();
 		$categoryNamespace = $language->getNsText( NS_CATEGORY );

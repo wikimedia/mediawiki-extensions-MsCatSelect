@@ -236,8 +236,8 @@ const MsCatSelect = {
 	checkCategories: function () {
 		if ( MsCatSelect.warnNoCategories &&
 			$( '#mscs-added input[type="checkbox"]:checked' ).length === 0 &&
-			MsCatSelect.warnNoCategoriesException.indexOf( mw.config.get( 'wgRelevantPageName' ) ) === -1 &&
-			MsCatSelect.warnNoCategoriesException.indexOf( mw.config.get( 'wgNamespaceNumber' ).toString() ) === -1
+			!MsCatSelect.warnNoCategoriesException.includes( mw.config.get( 'wgRelevantPageName' ) ) &&
+			!MsCatSelect.warnNoCategoriesException.includes( mw.config.get( 'wgNamespaceNumber' ).toString() )
 		) {
 			// eslint-disable-next-line no-alert
 			return confirm( mw.msg( 'mscs-warnnocat' ) );

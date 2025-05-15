@@ -1,11 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Elisardojm"
+			"Elisardojm",
+			"Toliño"
 		]
 	},
+	"mscs-desc": "Permite engadir unha páxina a unha categoría existente ou de nova creación mediante unha lista despregable",
 	"mscs-title": "Categoría principal",
 	"mscs-untercat": "Nova subcategoría",
+	"mscs-untercat-hinw": "crearase na categoría seleccionada anteriormente",
+	"mscs-warnnocat": "A páxina aínda non ten categorías asignadas. Queres gardar os cambios?",
+	"mscs-cats": "Categorías asignadas",
 	"mscs-add": "Engadir",
-	"mscs-go": "Crear"
+	"mscs-go": "Crear",
+	"mscs-created": "A categoría nova creouse correctamente",
+	"mscs-sortkey": "Engade aquí a clave de ordenación predeterminada. Úsase para ordenar dentro das páxinas de vista xeral da categoría."
 }

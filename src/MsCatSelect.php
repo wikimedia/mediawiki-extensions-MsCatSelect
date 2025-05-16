@@ -40,15 +40,16 @@ class MsCatSelect {
 		$categoryNamespace = $language->getNsText( NS_CATEGORY );
 
 		// Iterate through all selected category entries:
-		$text = "\n";
-		if ( array_key_exists( 'SelectCategoryList', $_POST ) ) {
-			foreach ( $_POST['SelectCategoryList'] as $category ) {
-				// If the sort key is empty, remove it
-				$category = rtrim( $category, '|' );
-				$text .= "\n[[" . $categoryNamespace . ":" . $category . "]]";
-			}
+		$categories = $editPage->getContext()->getRequest()->getArray( 'SelectCategoryList', [] );
+		$text = implode( "\n", array_map( static function ( string $category ) use ( $categoryNamespace ) {
+			// If the sort key is empty, remove it
+			$category = rtrim( $category, '|' );
+			return "[[{$categoryNamespace}:{$category}]]";
+		}, $categories ) );
+
+		if ( $text !== '' ) {
+			$editPage->textbox1 .= "\n\n{$text}";
 		}
-		$editPage->textbox1 .= $text;
 	}
 
 	/**

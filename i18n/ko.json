@@ -1,11 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Tensama0415",
 			"Ykhwong"
 		]
 	},
+	"mscs-desc": "드롭다운 목록을 통해 기존 분류 또는 새로 생성할 분류에 문서를 추가할 수 있습니다",
 	"mscs-title": "주 분류",
 	"mscs-untercat": "새 하위 분류",
+	"mscs-untercat-hinw": "위에서 선택한 분류에 생성됩니다",
 	"mscs-warnnocat": "이 문서에 아직 분류가 할당되지 않았습니다. 그래도 변경사항을 저장하시겠습니까?",
 	"mscs-cats": "할당된 분류",
 	"mscs-add": "추가",

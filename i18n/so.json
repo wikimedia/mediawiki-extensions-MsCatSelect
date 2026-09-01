@@ -4,5 +4,14 @@
 			"AhmedG612"
 		]
 	},
-	"mscs-add": "Ku dar"
+	"mscs-desc": "Waxay kuu oggolaanaysaa inaad bog ku darto qayb jirta ama qayb cusub oo la abuuri karo adigoo adeegsanaya liis hoos u dhac ah",
+	"mscs-title": "Qaybta ugu weyn",
+	"mscs-untercat": "Qayb hoosaad cusub",
+	"mscs-untercat-hinw": "Waxaa lagu abuuri doonaa qaybta kore ee la doortay",
+	"mscs-warnnocat": "Boggu weli ma laha qaybo loo qoondeeyay. Ma hubtaa inaad rabto inaad kaydiso isbeddellada?",
+	"mscs-cats": "Qaybaha loo qoondeeyay",
+	"mscs-add": "Ku dar",
+	"mscs-go": "Abuur",
+	"mscs-created": "Qayb cusub ayaa si guul leh loo abuuray",
+	"mscs-sortkey": "Fadlan halkan ku dar furaha kala-sarraynta caadiga ah. Waxaa loo isticmaalaa kala sarraynta gudaha bogagga dulmarka qaybta."
 }
